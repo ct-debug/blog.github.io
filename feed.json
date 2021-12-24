@@ -7,14 +7,6 @@
     "home_page_url": "https://www.debugsrc.top",
     "items": [
         {
-            "id": "https://www.debugsrc.top/uncategorized/C/c%E7%BC%96%E7%A8%8B",
-            "url": "https://www.debugsrc.top/uncategorized/C/c%E7%BC%96%E7%A8%8B",
-            "title": "",
-            "date_published": "2021-12-24T14:40:20.764Z",
-            "content_html": "<hr />\n<p>title: 框架<br />\n​---</p>\n<h1 id=\"c编程\"><a class=\"anchor\" href=\"#c编程\">#</a> C 编程</h1>\n",
-            "tags": []
-        },
-        {
             "id": "https://www.debugsrc.top/uncategorized/hello-world",
             "url": "https://www.debugsrc.top/uncategorized/hello-world",
             "title": "Hello World",
