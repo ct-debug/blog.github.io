@@ -36,13 +36,15 @@
             <link>https://www.debugsrc.top/uncategorized/C/c%E7%BC%96%E7%A8%8B</link>
             <pubDate>Fri, 24 Dec 2021 22:40:20 +0800</pubDate>
             <description><![CDATA[ &lt;hr /&gt;
-&lt;p&gt;title: wd&lt;br /&gt;
-date: 2021/12/24&lt;br /&gt;
-categories:&lt;br /&gt;
-[C]&lt;br /&gt;
-tags:&lt;br /&gt;
-[C]&lt;br /&gt;
-​---&lt;/p&gt;
+&lt;p&gt;title: 框架&lt;br /&gt;
+ date: 2021/12/24&lt;br /&gt;
+categories:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[C]&lt;br /&gt;
+tags:&lt;/li&gt;
+&lt;li&gt;[C]&lt;br /&gt;
+​---&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h1 id=&#34;c编程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#c编程&#34;&gt;#&lt;/a&gt; C 编程&lt;/h1&gt;
  ]]></description>
         </item>
