@@ -12,17 +12,12 @@
   </entry>
   <entry>
     <title></title>
-    <url>/2021/12/29/Java/2/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title></title>
     <url>/2021/12/29/Java/java/</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title></title>
-    <url>/2021/12/29/Python/Python/</url>
+    <url>/2021/12/29/Java/2/</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -43,5 +38,10 @@
 <p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></p>
 <p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s">Deployment</span></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2021/12/29/Python/Python/</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>
