@@ -10,8 +10,8 @@
         </author>
         <description>没有打不穿的系统，只有打不进的网安人╮(￣▽ ￣)╭</description>
         <language>zh-CN</language>
-        <pubDate>Wed, 29 Dec 2021 18:46:31 +0800</pubDate>
-        <lastBuildDate>Wed, 29 Dec 2021 18:46:31 +0800</lastBuildDate>
+        <pubDate>Fri, 24 Dec 2021 19:05:53 +0800</pubDate>
+        <lastBuildDate>Fri, 24 Dec 2021 19:05:53 +0800</lastBuildDate>
         <category term="web安全" />
         <category term="web" />
         <category term="java" />
@@ -30,41 +30,6 @@
         <category term="路由交换" />
         <category term="网络安全" />
         <category term="环境搭建" />
-        <item>
-            <guid isPermalink="true">https://www.debugsrc.top/2021/12/29/123/</guid>
-            <title>123</title>
-            <link>https://www.debugsrc.top/2021/12/29/123/</link>
-            <pubDate>Wed, 29 Dec 2021 18:46:31 +0800</pubDate>
-            <description><![CDATA[  ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://www.debugsrc.top/2021/12/29/Java/2/</guid>
-            <title></title>
-            <link>https://www.debugsrc.top/2021/12/29/Java/2/</link>
-            <pubDate>Wed, 29 Dec 2021 18:40:10 +0800</pubDate>
-            <description><![CDATA[  ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://www.debugsrc.top/2021/12/29/Java/1/</guid>
-            <title></title>
-            <link>https://www.debugsrc.top/2021/12/29/Java/1/</link>
-            <pubDate>Wed, 29 Dec 2021 18:39:56 +0800</pubDate>
-            <description><![CDATA[  ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://www.debugsrc.top/2021/12/29/Python/Python/</guid>
-            <title></title>
-            <link>https://www.debugsrc.top/2021/12/29/Python/Python/</link>
-            <pubDate>Wed, 29 Dec 2021 17:44:11 +0800</pubDate>
-            <description><![CDATA[  ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://www.debugsrc.top/2021/12/29/Java/java/</guid>
-            <title></title>
-            <link>https://www.debugsrc.top/2021/12/29/Java/java/</link>
-            <pubDate>Wed, 29 Dec 2021 17:43:57 +0800</pubDate>
-            <description><![CDATA[  ]]></description>
-        </item>
         <item>
             <guid isPermalink="true">https://www.debugsrc.top/2021/12/24/Python/hello-world/</guid>
             <title>Hello World</title>

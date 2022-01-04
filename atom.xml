@@ -8,7 +8,7 @@
     <author>
       <name>ct-debug</name>
     </author>
-    <updated>2021-12-29T10:46:31.000Z</updated>
+    <updated>2021-12-24T11:05:53.938Z</updated>
     <category term="web安全" />
     <category term="web" />
     <category term="java" />
@@ -27,41 +27,6 @@
     <category term="路由交换" />
     <category term="网络安全" />
     <category term="环境搭建" />
-    <entry>
-        <id>https://www.debugsrc.top/2021/12/29/123/</id>
-        <title>123</title>
-        <link rel="alternate" href="https://www.debugsrc.top/2021/12/29/123/"/>
-        <content type="html"></content>
-        <updated>2021-12-29T10:46:31.000Z</updated>
-    </entry>
-    <entry>
-        <id>https://www.debugsrc.top/2021/12/29/Java/2/</id>
-        <title></title>
-        <link rel="alternate" href="https://www.debugsrc.top/2021/12/29/Java/2/"/>
-        <content type="html"></content>
-        <updated>2021-12-29T10:40:10.184Z</updated>
-    </entry>
-    <entry>
-        <id>https://www.debugsrc.top/2021/12/29/Java/1/</id>
-        <title></title>
-        <link rel="alternate" href="https://www.debugsrc.top/2021/12/29/Java/1/"/>
-        <content type="html"></content>
-        <updated>2021-12-29T10:39:56.019Z</updated>
-    </entry>
-    <entry>
-        <id>https://www.debugsrc.top/2021/12/29/Python/Python/</id>
-        <title></title>
-        <link rel="alternate" href="https://www.debugsrc.top/2021/12/29/Python/Python/"/>
-        <content type="html"></content>
-        <updated>2021-12-29T09:44:11.348Z</updated>
-    </entry>
-    <entry>
-        <id>https://www.debugsrc.top/2021/12/29/Java/java/</id>
-        <title></title>
-        <link rel="alternate" href="https://www.debugsrc.top/2021/12/29/Java/java/"/>
-        <content type="html"></content>
-        <updated>2021-12-29T09:43:57.374Z</updated>
-    </entry>
     <entry>
         <id>https://www.debugsrc.top/2021/12/24/Python/hello-world/</id>
         <title>Hello World</title>
