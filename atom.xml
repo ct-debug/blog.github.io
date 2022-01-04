@@ -8,7 +8,7 @@
     <author>
       <name>ct-debug</name>
     </author>
-    <updated>2021-12-24T11:05:53.938Z</updated>
+    <updated>2022-01-04T07:56:59.886Z</updated>
     <category term="web安全" />
     <category term="web" />
     <category term="java" />
@@ -28,24 +28,195 @@
     <category term="网络安全" />
     <category term="环境搭建" />
     <entry>
-        <id>https://blog.debugsrc.top/2021/12/24/Python/hello-world/</id>
-        <title>Hello World</title>
-        <link rel="alternate" href="https://blog.debugsrc.top/2021/12/24/Python/hello-world/"/>
-        <content type="html">&lt;p&gt;Welcome to &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvLw==&#34;&gt;Hexo&lt;/span&gt;! This is your very first post. Check &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv&#34;&gt;documentation&lt;/span&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=&#34;&gt;troubleshooting&lt;/span&gt; or you can ask me on &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==&#34;&gt;GitHub&lt;/span&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;quick-start&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#quick-start&#34;&gt;#&lt;/a&gt; Quick Start&lt;/h2&gt;
-&lt;h3 id=&#34;create-a-new-post&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#create-a-new-post&#34;&gt;#&lt;/a&gt; Create a new post&lt;/h3&gt;
-&lt;p&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ hexo new &lt;span class=&#34;string&#34;&gt;&amp;quot;My New Post&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s&#34;&gt;Writing&lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&#34;run-server&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#run-server&#34;&gt;#&lt;/a&gt; Run server&lt;/h3&gt;
-&lt;p&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=&#34;&gt;Server&lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&#34;generate-static-files&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#generate-static-files&#34;&gt;#&lt;/a&gt; Generate static files&lt;/h3&gt;
-&lt;p&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s&#34;&gt;Generating&lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&#34;deploy-to-remote-sites&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#deploy-to-remote-sites&#34;&gt;#&lt;/a&gt; Deploy to remote sites&lt;/h3&gt;
-&lt;p&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s&#34;&gt;Deployment&lt;/span&gt;&lt;/p&gt;
+        <id>https://blog.debugsrc.top/2022/01/04/samba%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</id>
+        <title>Samba</title>
+        <link rel="alternate" href="https://blog.debugsrc.top/2022/01/04/samba%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/"/>
+        <content type="html">&lt;h1 id=&#34;安装samba服务器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装samba服务器&#34;&gt;#&lt;/a&gt; 安装 Samba 服务器&lt;/h1&gt;
+&lt;h2 id=&#34;环境&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#环境&#34;&gt;#&lt;/a&gt; 环境&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;CentOS 8 boot 64 位&lt;br /&gt;
+ window 10 64 位&lt;br /&gt;
+ ##samba 软件包&lt;br /&gt;
+检查是否安装了 samba 软件包&lt;br /&gt;
+ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;rpm -qa | grep samba&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
+ 没有安装软件包，则使用 yum 命令安装&lt;br /&gt;
+ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;yum clean all&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;yum -y install samba&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
+samba 软件包如下：&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;samba-4.11.2-13.el8.x86_64&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;samba-libs-4.11.2-13.el8.x86_64&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;samba-common-4.11.2-13.el8.noarch&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;samba-common-tools-4.11.2-13.el8.x86_64&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;samba-common-libs-4.11.2-13.el8.x86_64&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;samba-client-4.11.2-13.el8.x86_64&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;samba-client-libs-4.11.2-13.el8.x86_64&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pcp-pmda-samba-5.0.2-5.el8.x86_64&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;samba服务&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#samba服务&#34;&gt;#&lt;/a&gt; samba 服务&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;启动 samba 服务&lt;br /&gt;
+ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;systemctl start smb.service&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
+ 停止 samba 服务&lt;br /&gt;
+ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;systemctl stop smb.service&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
+ 重启 samba 服务&lt;br /&gt;
+ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;systemctl restart smb.service&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
+ 查看 samba 服务状态&lt;br /&gt;
+ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;systemctl status smb.service&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
+ 开机自启 samba 服务器&lt;br /&gt;
+ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;systemctl list-unit-files | grep smb&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;配置samba服务器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#配置samba服务器&#34;&gt;#&lt;/a&gt; 配置 Samba 服务器；&lt;/h1&gt;
+&lt;h2 id=&#34;samba主配置文件smbconf&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#samba主配置文件smbconf&#34;&gt;#&lt;/a&gt; samba 主配置文件 smb.conf&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;[myshare]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;comment = share&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;path = /mnt/share&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;public = yes&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Read only = yes&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h1 id=&#34;设置samba服务的日志和账号&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#设置samba服务的日志和账号&#34;&gt;#&lt;/a&gt; 设置 samba 服务的日志和账号。&lt;/h1&gt;
+&lt;h2 id=&#34;日志&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#日志&#34;&gt;#&lt;/a&gt; 日志&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;设置日志文件储存路径&lt;br /&gt;
+ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;log file = /var/log/samba/log.%m&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
+ 设置日志文件最大容量，单位为 KB&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;max log size = 50&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;账号&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#账号&#34;&gt;#&lt;/a&gt; 账号&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;samba 账号不能被直接创建，必须存在对应的同名系统账户。samba 中添加账号命令为 &lt;code&gt;smbpasswd&lt;/code&gt; &lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;smbpasswd -a user(用户名)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
+ 创建系统用户&lt;br /&gt;
+ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;useradd user(用户名)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
+ 修改系统用户密码&lt;br /&gt;
+ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;passwd user(用户名)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
+ 将系统用户建立为同名的 samba 账号并设置密码&lt;br /&gt;
+ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;smbpasswd -a user(用户名)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;关闭防火墙将selinux设置成允许permissive&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#关闭防火墙将selinux设置成允许permissive&#34;&gt;#&lt;/a&gt; 关闭防火墙，将 selinux 设置成允许 permissive。&lt;/h1&gt;
+&lt;h2 id=&#34;使用firewalld打开关闭防火墙与端口&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用firewalld打开关闭防火墙与端口&#34;&gt;#&lt;/a&gt; 使用 firewalld 打开关闭防火墙与端口&lt;/h2&gt;
+&lt;h3 id=&#34;firewalld的基本使用&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#firewalld的基本使用&#34;&gt;#&lt;/a&gt; firewalld 的基本使用&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;启动：  &lt;code&gt;systemctl start firewalld&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;关闭：  &lt;code&gt;systemctl stop firewalld&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;查看状态：  &lt;code&gt;systemctl status firewalld&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;开机禁用：  &lt;code&gt;systemctl disable firewalld&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;开机启用：  &lt;code&gt;systemctl enable firewalld&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;systemctl是centos7的服务管理工具中主要的工具它融合之前service和chkconfig的功能于一体&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#systemctl是centos7的服务管理工具中主要的工具它融合之前service和chkconfig的功能于一体&#34;&gt;#&lt;/a&gt; systemctl 是 CentOS7 的服务管理工具中主要的工具，它融合之前 service 和 chkconfig 的功能于一体。&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;启动一个服务： &lt;code&gt;systemctl start firewalld.service&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;关闭一个服务： &lt;code&gt;systemctl stop firewalld.service&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;重启一个服务： &lt;code&gt;systemctl restart firewalld.service&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;显示一个服务的状态： &lt;code&gt;systemctl status firewalld.service&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在开机时启用一个服务： &lt;code&gt;systemctl enable firewalld.service&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在开机时禁用一个服务： &lt;code&gt;systemctl disable firewalld.service&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;查看服务是否开机启动： &lt;code&gt;systemctl is-enabled firewalld.service&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;查看已启动的服务列表： &lt;code&gt;systemctl list-unit-files|grep enabled&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;查看启动失败的服务列表： &lt;code&gt;systemctl --failed&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;配置firewalld-cmd&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#配置firewalld-cmd&#34;&gt;#&lt;/a&gt; 配置 firewalld-cmd&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;查看版本：  &lt;code&gt;firewall-cmd --version&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;查看帮助：  &lt;code&gt;firewall-cmd --help&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;显示状态：  &lt;code&gt;firewall-cmd --state&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;查看所有打开的端口：  &lt;code&gt;firewall-cmd --zone=public --list-ports&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;更新防火墙规则：  &lt;code&gt;firewall-cmd --reload&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;查看区域信息:   &lt;code&gt;firewall-cmd --get-active-zones&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;查看指定接口所属区域：  &lt;code&gt;firewall-cmd --get-zone-of-interface=eth0&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;拒绝所有包： &lt;code&gt;firewall-cmd --panic-on&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;取消拒绝状态：  &lt;code&gt;firewall-cmd --panic-off&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;查看是否拒绝：  &lt;code&gt;firewall-cmd --query-panic&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;开启一个端口&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#开启一个端口&#34;&gt;#&lt;/a&gt; 开启一个端口&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;添加&lt;br /&gt;
+ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;firewall-cmd --zone=public --add-port=80/tcp --permanent（--permanent永久生效，没有此参数重启后失效）&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
+ 重新载入&lt;br /&gt;
+ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;firewall-cmd --reload&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
+ 查看&lt;br /&gt;
+ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;firewall-cmd --zone= public --query-port=80/tcp&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
+ 删除&lt;br /&gt;
+ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;firewall-cmd --zone= public --remove-port=80/tcp --permanent&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;将selinux设置成允许permissive&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#将selinux设置成允许permissive&#34;&gt;#&lt;/a&gt; 将 selinux 设置成允许 permissive&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;[root@localhost ~]# getenforce&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Enforcing&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@localhost ~]# setenforce 0&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[root@localhost ~]# getenforce&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Permissive&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h1 id=&#34;在window系统中测试samba服务器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#在window系统中测试samba服务器&#34;&gt;#&lt;/a&gt; 在 window 系统中测试 samba 服务器&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在资源管理器地址栏中输入 `\192.168.0.1・(samba 服务器 ip 地址)&lt;/p&gt;
+&lt;/blockquote&gt;
 </content>
-        <updated>2021-12-24T11:05:53.938Z</updated>
+        <category term="服务器搭建" scheme="https://blog.debugsrc.top/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/" />
+        <category term="服务器" scheme="https://blog.debugsrc.top/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" />
+        <category term="Samba" scheme="https://blog.debugsrc.top/tags/Samba/" />
+        <category term="环境搭建" scheme="https://blog.debugsrc.top/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" />
+        <updated>2022-01-04T07:56:59.886Z</updated>
+    </entry>
+    <entry>
+        <id>https://blog.debugsrc.top/2022/01/04/termux/</id>
+        <title>Termux</title>
+        <link rel="alternate" href="https://blog.debugsrc.top/2022/01/04/termux/"/>
+        <content type="html">&lt;h4 id=&#34;更换国内源&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#更换国内源&#34;&gt;#&lt;/a&gt; 更换国内源&lt;/h4&gt;
+&lt;p&gt;更换 Termux 清华大学源，加快软件包下载速度。&lt;/p&gt;
+&lt;p&gt;设置默认编辑器&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;export EDITOR=vi&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;编辑源文件&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;apt edit-sources &lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;将原来的 https://termux.net 官方源替换为 http://mirrors.tuna.tsinghua.edu.cn/termux&lt;/p&gt;
+&lt;h4 id=&#34;安装基本工具&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装基本工具&#34;&gt;#&lt;/a&gt; 安装基本工具&lt;/h4&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;pkg update&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pkg install vim curl wget git unzip unrar nmap python&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pip install sqlmap requests&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h4 id=&#34;管理员身份&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#管理员身份&#34;&gt;#&lt;/a&gt; 管理员身份&lt;/h4&gt;
+&lt;p&gt;手机没有 root, 可利用 proot 工具来模拟某些需要 root 的环境&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;pkg install proot&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;然后终端下面输入:&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;termux-chroot&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;即可模拟 root 环境，在这个 proot 环境下面，相当于是进入了 home 目录，可以很方便地进行一些配置。在管理员身份下，输入 exit 可回到普通用户身份。&lt;/p&gt;
+&lt;p&gt;参考：Termux 高级终端安装使用配置教程 url:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3V1dTk4Ny9hcnRpY2xlL2RldGFpbHMvODY3NzM3OTE=&#34;&gt;https://blog.csdn.net/uuu987/article/details/86773791&lt;/span&gt;&lt;/p&gt;
+&lt;h4 id=&#34;克隆metasploit&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#克隆metasploit&#34;&gt;#&lt;/a&gt; 克隆 metasploit&lt;/h4&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;cd /usr&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;git clone https://github.com/gushmazuko/metasploit_in_termux&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h4 id=&#34;安装metasploit&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装metasploit&#34;&gt;#&lt;/a&gt; 安装 metasploit&lt;/h4&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;chmod +x *.sh &amp;amp;&amp;amp; ./metasploit.sh&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;参考 url：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL2F2OTMwMDkyOTg1Lw==&#34;&gt;https://www.bilibili.com/video/av930092985/&lt;/span&gt;&lt;/p&gt;
+&lt;h4 id=&#34;解决中文乱码问题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#解决中文乱码问题&#34;&gt;#&lt;/a&gt; 解决中文乱码问题&lt;/h4&gt;
+&lt;p&gt;在 home 目录下，新建.vimrc 文件&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;vim .vimrc&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;添加内容如下:&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;set enc=utf8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;set fencs=utf8,gbk,gb2312,gb18030&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;然后 source 下变量:&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;source .vimrc&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+</content>
+        <category term="环境搭建" scheme="https://blog.debugsrc.top/categories/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" />
+        <category term="Termux" scheme="https://blog.debugsrc.top/tags/Termux/" />
+        <category term="渗透" scheme="https://blog.debugsrc.top/tags/%E6%B8%97%E9%80%8F/" />
+        <category term="metasploit" scheme="https://blog.debugsrc.top/tags/metasploit/" />
+        <updated>2022-01-04T07:56:10.881Z</updated>
     </entry>
 </feed>
