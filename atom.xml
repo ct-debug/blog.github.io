@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.debugsrc.top</id>
-    <title></title>
-    <subtitle></subtitle>
+    <title>My blog</title>
+    <subtitle>Record my learning bit by bit</subtitle>
     <icon>https://blog.debugsrc.top/images/favicon.ico</icon>
     <link href="https://blog.debugsrc.top" />
     <author>
