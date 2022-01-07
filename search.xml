@@ -1,65 +1,259 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>Samba</title>
-      <link href="/2022/01/04/%E8%AE%A1%E7%AE%97%E6%9C%BA/samba%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/"/>
-      <url>/2022/01/04/%E8%AE%A1%E7%AE%97%E6%9C%BA/samba%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</url>
-      
-        <content type="html"><![CDATA[<h1 id="安装samba服务器"><a class="anchor" href="#安装samba服务器">#</a> 安装 Samba 服务器</h1><h2 id="环境"><a class="anchor" href="#环境">#</a> 环境</h2><blockquote><p>CentOS 8 boot 64 位<br /> window 10 64 位<br /> ##samba 软件包<br />检查是否安装了 samba 软件包</p></blockquote><pre><code>rpm -qa | grep samba</code></pre><blockquote><p>没有安装软件包，则使用 yum 命令安装</p></blockquote><pre><code>yum clean allyum -y install samba</code></pre><blockquote><p>samba 软件包如下：</p></blockquote><pre><code>samba-4.11.2-13.el8.x86_64samba-libs-4.11.2-13.el8.x86_64samba-common-4.11.2-13.el8.noarchsamba-common-tools-4.11.2-13.el8.x86_64samba-common-libs-4.11.2-13.el8.x86_64samba-client-4.11.2-13.el8.x86_64samba-client-libs-4.11.2-13.el8.x86_64pcp-pmda-samba-5.0.2-5.el8.x86_64</code></pre><h2 id="samba服务"><a class="anchor" href="#samba服务">#</a> samba 服务</h2><blockquote><p>启动 samba 服务</p></blockquote><pre><code>systemctl start smb.service</code></pre><blockquote><p>停止 samba 服务</p></blockquote><pre><code>systemctl stop smb.service</code></pre><blockquote><p>重启 samba 服务</p></blockquote><pre><code>systemctl restart smb.service</code></pre><blockquote><p>查看 samba 服务状态</p></blockquote><pre><code>systemctl status smb.service</code></pre><blockquote><p>开机自启 samba 服务器</p></blockquote><pre><code>systemctl list-unit-files | grep smb</code></pre><h1 id="配置samba服务器"><a class="anchor" href="#配置samba服务器">#</a> 配置 Samba 服务器；</h1><h2 id="samba主配置文件smbconf"><a class="anchor" href="#samba主配置文件smbconf">#</a> samba 主配置文件 smb.conf</h2><pre><code>[myshare]comment = sharepath = /mnt/sharepublic = yesRead only = yes</code></pre><h1 id="设置samba服务的日志和账号"><a class="anchor" href="#设置samba服务的日志和账号">#</a> 设置 samba 服务的日志和账号。</h1><h2 id="日志"><a class="anchor" href="#日志">#</a> 日志</h2><blockquote><p>设置日志文件储存路径</p></blockquote><pre><code>log file = /var/log/samba/log.%m</code></pre><blockquote><p>设置日志文件最大容量，单位为 KB</p></blockquote><pre><code>max log size = 50</code></pre><h2 id="账号"><a class="anchor" href="#账号">#</a> 账号</h2><blockquote><p>samba 账号不能被直接创建，必须存在对应的同名系统账户。samba 中添加账号命令为 <code>smbpasswd</code></p></blockquote><pre><code>smbpasswd -a user(用户名)</code></pre><blockquote><p>创建系统用户</p></blockquote><pre><code>useradd user(用户名)</code></pre><blockquote><p>修改系统用户密码</p></blockquote><pre><code>passwd user(用户名)</code></pre><blockquote><p>将系统用户建立为同名的 samba 账号并设置密码</p></blockquote><pre><code>smbpasswd -a user(用户名)</code></pre><h1 id="关闭防火墙将selinux设置成允许permissive"><a class="anchor" href="#关闭防火墙将selinux设置成允许permissive">#</a> 关闭防火墙，将 selinux 设置成允许 permissive。</h1><h2 id="使用firewalld打开关闭防火墙与端口"><a class="anchor" href="#使用firewalld打开关闭防火墙与端口">#</a> 使用 firewalld 打开关闭防火墙与端口</h2><h3 id="firewalld的基本使用"><a class="anchor" href="#firewalld的基本使用">#</a> firewalld 的基本使用</h3><blockquote><p>启动：  <code>systemctl start firewalld</code></p></blockquote><blockquote><p>关闭：  <code>systemctl stop firewalld</code></p></blockquote><blockquote><p>查看状态：  <code>systemctl status firewalld</code></p></blockquote><blockquote><p>开机禁用：  <code>systemctl disable firewalld</code></p></blockquote><blockquote><p>开机启用：  <code>systemctl enable firewalld</code></p></blockquote><h3 id="systemctl是centos7的服务管理工具中主要的工具它融合之前service和chkconfig的功能于一体"><a class="anchor" href="#systemctl是centos7的服务管理工具中主要的工具它融合之前service和chkconfig的功能于一体">#</a> systemctl 是 CentOS7 的服务管理工具中主要的工具，它融合之前 service 和 chkconfig 的功能于一体。</h3><blockquote><p>启动一个服务： <code>systemctl start firewalld.service</code></p></blockquote><blockquote><p>关闭一个服务： <code>systemctl stop firewalld.service</code></p></blockquote><blockquote><p>重启一个服务： <code>systemctl restart firewalld.service</code></p></blockquote><blockquote><p>显示一个服务的状态： <code>systemctl status firewalld.service</code></p></blockquote><blockquote><p>在开机时启用一个服务： <code>systemctl enable firewalld.service</code></p></blockquote><blockquote><p>在开机时禁用一个服务： <code>systemctl disable firewalld.service</code></p></blockquote><blockquote><p>查看服务是否开机启动： <code>systemctl is-enabled firewalld.service</code></p></blockquote><blockquote><p>查看已启动的服务列表： <code>systemctl list-unit-files|grep enabled</code></p></blockquote><blockquote><p>查看启动失败的服务列表： <code>systemctl --failed</code></p></blockquote><h3 id="配置firewalld-cmd"><a class="anchor" href="#配置firewalld-cmd">#</a> 配置 firewalld-cmd</h3><blockquote><p>查看版本：  <code>firewall-cmd --version</code></p></blockquote><blockquote><p>查看帮助：  <code>firewall-cmd --help</code></p></blockquote><blockquote><p>显示状态：  <code>firewall-cmd --state</code></p></blockquote><blockquote><p>查看所有打开的端口：  <code>firewall-cmd --zone=public --list-ports</code></p></blockquote><blockquote><p>更新防火墙规则：  <code>firewall-cmd --reload</code></p></blockquote><blockquote><p>查看区域信息:   <code>firewall-cmd --get-active-zones</code></p></blockquote><blockquote><p>查看指定接口所属区域：  <code>firewall-cmd --get-zone-of-interface=eth0</code></p></blockquote><blockquote><p>拒绝所有包： <code>firewall-cmd --panic-on</code></p></blockquote><blockquote><p>取消拒绝状态：  <code>firewall-cmd --panic-off</code></p></blockquote><blockquote><p>查看是否拒绝：  <code>firewall-cmd --query-panic</code></p></blockquote><h3 id="开启一个端口"><a class="anchor" href="#开启一个端口">#</a> 开启一个端口</h3><blockquote><p>添加</p></blockquote><pre><code>firewall-cmd --zone=public --add-port=80/tcp --permanent（--permanent永久生效，没有此参数重启后失效）</code></pre><blockquote><p>重新载入</p></blockquote><pre><code>firewall-cmd --reload</code></pre><blockquote><p>查看</p></blockquote><pre><code>firewall-cmd --zone= public --query-port=80/tcp</code></pre><blockquote><p>删除</p></blockquote><pre><code>firewall-cmd --zone= public --remove-port=80/tcp --permanent</code></pre><h2 id="将selinux设置成允许permissive"><a class="anchor" href="#将selinux设置成允许permissive">#</a> 将 selinux 设置成允许 permissive</h2><pre><code>[root@localhost ~]# getenforceEnforcing[root@localhost ~]# setenforce 0[root@localhost ~]# getenforcePermissive</code></pre><h1 id="在window系统中测试samba服务器"><a class="anchor" href="#在window系统中测试samba服务器">#</a> 在 window 系统中测试 samba 服务器</h1><blockquote><p>在资源管理器地址栏中输入 `\192.168.0.1・(samba 服务器 ip 地址)</p></blockquote>]]></content>
-      
-      
+<search>
+  <entry>
+    <title>Samba</title>
+    <url>/2022/01/04/%E8%AE%A1%E7%AE%97%E6%9C%BA/samba%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<h1 id="安装samba服务器"><a class="anchor" href="#安装samba服务器">#</a> 安装 Samba 服务器</h1>
+<h2 id="环境"><a class="anchor" href="#环境">#</a> 环境</h2>
+<blockquote>
+<p>CentOS 8 boot 64 位<br />
+ window 10 64 位<br />
+ ##samba 软件包<br />
+检查是否安装了 samba 软件包</p>
+</blockquote>
+<pre><code>rpm -qa | grep samba
+</code></pre>
+<blockquote>
+<p>没有安装软件包，则使用 yum 命令安装</p>
+</blockquote>
+<pre><code>yum clean all
+yum -y install samba
+</code></pre>
+<blockquote>
+<p>samba 软件包如下：</p>
+</blockquote>
+<pre><code>samba-4.11.2-13.el8.x86_64
+samba-libs-4.11.2-13.el8.x86_64
+samba-common-4.11.2-13.el8.noarch
+samba-common-tools-4.11.2-13.el8.x86_64
+samba-common-libs-4.11.2-13.el8.x86_64
+samba-client-4.11.2-13.el8.x86_64
+samba-client-libs-4.11.2-13.el8.x86_64
+pcp-pmda-samba-5.0.2-5.el8.x86_64
+</code></pre>
+<h2 id="samba服务"><a class="anchor" href="#samba服务">#</a> samba 服务</h2>
+<blockquote>
+<p>启动 samba 服务</p>
+</blockquote>
+<pre><code>systemctl start smb.service
+</code></pre>
+<blockquote>
+<p>停止 samba 服务</p>
+</blockquote>
+<pre><code>systemctl stop smb.service
+</code></pre>
+<blockquote>
+<p>重启 samba 服务</p>
+</blockquote>
+<pre><code>systemctl restart smb.service
+</code></pre>
+<blockquote>
+<p>查看 samba 服务状态</p>
+</blockquote>
+<pre><code>systemctl status smb.service
+</code></pre>
+<blockquote>
+<p>开机自启 samba 服务器</p>
+</blockquote>
+<pre><code>systemctl list-unit-files | grep smb
+</code></pre>
+<h1 id="配置samba服务器"><a class="anchor" href="#配置samba服务器">#</a> 配置 Samba 服务器；</h1>
+<h2 id="samba主配置文件smbconf"><a class="anchor" href="#samba主配置文件smbconf">#</a> samba 主配置文件 smb.conf</h2>
+<pre><code>[myshare]
+comment = share
+path = /mnt/share
+public = yes
+Read only = yes
+</code></pre>
+<h1 id="设置samba服务的日志和账号"><a class="anchor" href="#设置samba服务的日志和账号">#</a> 设置 samba 服务的日志和账号。</h1>
+<h2 id="日志"><a class="anchor" href="#日志">#</a> 日志</h2>
+<blockquote>
+<p>设置日志文件储存路径</p>
+</blockquote>
+<pre><code>log file = /var/log/samba/log.%m
+</code></pre>
+<blockquote>
+<p>设置日志文件最大容量，单位为 KB</p>
+</blockquote>
+<pre><code>max log size = 50
+</code></pre>
+<h2 id="账号"><a class="anchor" href="#账号">#</a> 账号</h2>
+<blockquote>
+<p>samba 账号不能被直接创建，必须存在对应的同名系统账户。samba 中添加账号命令为 <code>smbpasswd</code></p>
+</blockquote>
+<pre><code>smbpasswd -a user(用户名)
+</code></pre>
+<blockquote>
+<p>创建系统用户</p>
+</blockquote>
+<pre><code>useradd user(用户名)
+</code></pre>
+<blockquote>
+<p>修改系统用户密码</p>
+</blockquote>
+<pre><code>passwd user(用户名)
+</code></pre>
+<blockquote>
+<p>将系统用户建立为同名的 samba 账号并设置密码</p>
+</blockquote>
+<pre><code>smbpasswd -a user(用户名)
+</code></pre>
+<h1 id="关闭防火墙将selinux设置成允许permissive"><a class="anchor" href="#关闭防火墙将selinux设置成允许permissive">#</a> 关闭防火墙，将 selinux 设置成允许 permissive。</h1>
+<h2 id="使用firewalld打开关闭防火墙与端口"><a class="anchor" href="#使用firewalld打开关闭防火墙与端口">#</a> 使用 firewalld 打开关闭防火墙与端口</h2>
+<h3 id="firewalld的基本使用"><a class="anchor" href="#firewalld的基本使用">#</a> firewalld 的基本使用</h3>
+<blockquote>
+<p>启动：  <code>systemctl start firewalld</code></p>
+</blockquote>
+<blockquote>
+<p>关闭：  <code>systemctl stop firewalld</code></p>
+</blockquote>
+<blockquote>
+<p>查看状态：  <code>systemctl status firewalld</code></p>
+</blockquote>
+<blockquote>
+<p>开机禁用：  <code>systemctl disable firewalld</code></p>
+</blockquote>
+<blockquote>
+<p>开机启用：  <code>systemctl enable firewalld</code></p>
+</blockquote>
+<h3 id="systemctl是centos7的服务管理工具中主要的工具它融合之前service和chkconfig的功能于一体"><a class="anchor" href="#systemctl是centos7的服务管理工具中主要的工具它融合之前service和chkconfig的功能于一体">#</a> systemctl 是 CentOS7 的服务管理工具中主要的工具，它融合之前 service 和 chkconfig 的功能于一体。</h3>
+<blockquote>
+<p>启动一个服务： <code>systemctl start firewalld.service</code></p>
+</blockquote>
+<blockquote>
+<p>关闭一个服务： <code>systemctl stop firewalld.service</code></p>
+</blockquote>
+<blockquote>
+<p>重启一个服务： <code>systemctl restart firewalld.service</code></p>
+</blockquote>
+<blockquote>
+<p>显示一个服务的状态： <code>systemctl status firewalld.service</code></p>
+</blockquote>
+<blockquote>
+<p>在开机时启用一个服务： <code>systemctl enable firewalld.service</code></p>
+</blockquote>
+<blockquote>
+<p>在开机时禁用一个服务： <code>systemctl disable firewalld.service</code></p>
+</blockquote>
+<blockquote>
+<p>查看服务是否开机启动： <code>systemctl is-enabled firewalld.service</code></p>
+</blockquote>
+<blockquote>
+<p>查看已启动的服务列表： <code>systemctl list-unit-files|grep enabled</code></p>
+</blockquote>
+<blockquote>
+<p>查看启动失败的服务列表： <code>systemctl --failed</code></p>
+</blockquote>
+<h3 id="配置firewalld-cmd"><a class="anchor" href="#配置firewalld-cmd">#</a> 配置 firewalld-cmd</h3>
+<blockquote>
+<p>查看版本：  <code>firewall-cmd --version</code></p>
+</blockquote>
+<blockquote>
+<p>查看帮助：  <code>firewall-cmd --help</code></p>
+</blockquote>
+<blockquote>
+<p>显示状态：  <code>firewall-cmd --state</code></p>
+</blockquote>
+<blockquote>
+<p>查看所有打开的端口：  <code>firewall-cmd --zone=public --list-ports</code></p>
+</blockquote>
+<blockquote>
+<p>更新防火墙规则：  <code>firewall-cmd --reload</code></p>
+</blockquote>
+<blockquote>
+<p>查看区域信息:   <code>firewall-cmd --get-active-zones</code></p>
+</blockquote>
+<blockquote>
+<p>查看指定接口所属区域：  <code>firewall-cmd --get-zone-of-interface=eth0</code></p>
+</blockquote>
+<blockquote>
+<p>拒绝所有包： <code>firewall-cmd --panic-on</code></p>
+</blockquote>
+<blockquote>
+<p>取消拒绝状态：  <code>firewall-cmd --panic-off</code></p>
+</blockquote>
+<blockquote>
+<p>查看是否拒绝：  <code>firewall-cmd --query-panic</code></p>
+</blockquote>
+<h3 id="开启一个端口"><a class="anchor" href="#开启一个端口">#</a> 开启一个端口</h3>
+<blockquote>
+<p>添加</p>
+</blockquote>
+<pre><code>firewall-cmd --zone=public --add-port=80/tcp --permanent（--permanent永久生效，没有此参数重启后失效）
+</code></pre>
+<blockquote>
+<p>重新载入</p>
+</blockquote>
+<pre><code>firewall-cmd --reload
+</code></pre>
+<blockquote>
+<p>查看</p>
+</blockquote>
+<pre><code>firewall-cmd --zone= public --query-port=80/tcp
+</code></pre>
+<blockquote>
+<p>删除</p>
+</blockquote>
+<pre><code>firewall-cmd --zone= public --remove-port=80/tcp --permanent
+</code></pre>
+<h2 id="将selinux设置成允许permissive"><a class="anchor" href="#将selinux设置成允许permissive">#</a> 将 selinux 设置成允许 permissive</h2>
+<pre><code>[root@localhost ~]# getenforce
+Enforcing
+[root@localhost ~]# setenforce 0
+[root@localhost ~]# getenforce
+Permissive
+</code></pre>
+<h1 id="在window系统中测试samba服务器"><a class="anchor" href="#在window系统中测试samba服务器">#</a> 在 window 系统中测试 samba 服务器</h1>
+<blockquote>
+<p>在资源管理器地址栏中输入 `\192.168.0.1・(samba 服务器 ip 地址)</p>
+</blockquote>
+]]></content>
       <categories>
-          
-          <category> 服务器搭建 </category>
-          
+        <category>服务器搭建</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 服务器 </tag>
-            
-            <tag> Samba </tag>
-            
-            <tag> 环境搭建 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Termux</title>
-      <link href="/2022/01/04/%E8%AE%A1%E7%AE%97%E6%9C%BA/termux/"/>
-      <url>/2022/01/04/%E8%AE%A1%E7%AE%97%E6%9C%BA/termux/</url>
-      
-        <content type="html"><![CDATA[<h4 id="更换国内源"><a class="anchor" href="#更换国内源">#</a> 更换国内源</h4><p>更换 Termux 清华大学源，加快软件包下载速度。</p><p>设置默认编辑器</p><figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token builtin class-name">export</span> <span class="token assign-left variable">EDITOR</span><span class="token operator">=</span>vi</pre></td></tr></table></figure><p>编辑源文件</p><figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">apt</span> edit-sources</pre></td></tr></table></figure><p>将原来的 https://termux.net 官方源替换为 http://mirrors.tuna.tsinghua.edu.cn/termux</p><h4 id="安装基本工具"><a class="anchor" href="#安装基本工具">#</a> 安装基本工具</h4><figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre>pkg update</pre></td></tr><tr><td data-num="2"></td><td><pre>pkg <span class="token function">install</span> <span class="token function">vim</span> <span class="token function">curl</span> <span class="token function">wget</span> <span class="token function">git</span> <span class="token function">unzip</span> <span class="token function">unrar</span> nmap python</pre></td></tr><tr><td data-num="3"></td><td><pre>pip <span class="token function">install</span> sqlmap requests</pre></td></tr></table></figure><h4 id="管理员身份"><a class="anchor" href="#管理员身份">#</a> 管理员身份</h4><p>手机没有 root, 可利用 proot 工具来模拟某些需要 root 的环境</p><figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre>pkg <span class="token function">install</span> proot</pre></td></tr></table></figure><p>然后终端下面输入:</p><figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre>termux-chroot</pre></td></tr></table></figure><p>即可模拟 root 环境，在这个 proot 环境下面，相当于是进入了 home 目录，可以很方便地进行一些配置。在管理员身份下，输入 exit 可回到普通用户身份。</p><p>参考：Termux 高级终端安装使用配置教程 url:<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3V1dTk4Ny9hcnRpY2xlL2RldGFpbHMvODY3NzM3OTE=">https://blog.csdn.net/uuu987/article/details/86773791</span></p><h4 id="克隆metasploit"><a class="anchor" href="#克隆metasploit">#</a> 克隆 metasploit</h4><figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token builtin class-name">cd</span> /usr</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">git</span> clone https://github.com/gushmazuko/metasploit_in_termux</pre></td></tr></table></figure><h4 id="安装metasploit"><a class="anchor" href="#安装metasploit">#</a> 安装 metasploit</h4><figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">chmod</span> +x *.sh <span class="token operator">&amp;&amp;</span> ./metasploit.sh</pre></td></tr></table></figure><p>参考 url：<span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL2F2OTMwMDkyOTg1Lw==">https://www.bilibili.com/video/av930092985/</span></p><h4 id="解决中文乱码问题"><a class="anchor" href="#解决中文乱码问题">#</a> 解决中文乱码问题</h4><p>在 home 目录下，新建.vimrc 文件</p><pre><code>vim .vimrc</code></pre><p>添加内容如下:</p><pre><code>set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1set enc=utf8set fencs=utf8,gbk,gb2312,gb18030</code></pre><p>然后 source 下变量:</p><pre><code>source .vimrc</code></pre>]]></content>
-      
-      
+      <tags>
+        <tag>服务器</tag>
+        <tag>Samba</tag>
+        <tag>环境搭建</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Termux</title>
+    <url>/2022/01/04/%E8%AE%A1%E7%AE%97%E6%9C%BA/termux/</url>
+    <content><![CDATA[<h4 id="更换国内源"><a class="anchor" href="#更换国内源">#</a> 更换国内源</h4>
+<p>更换 Termux 清华大学源，加快软件包下载速度。</p>
+<p>设置默认编辑器</p>
+<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token builtin class-name">export</span> <span class="token assign-left variable">EDITOR</span><span class="token operator">=</span>vi</pre></td></tr></table></figure><p>编辑源文件</p>
+<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">apt</span> edit-sources</pre></td></tr></table></figure><p>将原来的 https://termux.net 官方源替换为 http://mirrors.tuna.tsinghua.edu.cn/termux</p>
+<h4 id="安装基本工具"><a class="anchor" href="#安装基本工具">#</a> 安装基本工具</h4>
+<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre>pkg update</pre></td></tr><tr><td data-num="2"></td><td><pre>pkg <span class="token function">install</span> <span class="token function">vim</span> <span class="token function">curl</span> <span class="token function">wget</span> <span class="token function">git</span> <span class="token function">unzip</span> <span class="token function">unrar</span> nmap python</pre></td></tr><tr><td data-num="3"></td><td><pre>pip <span class="token function">install</span> sqlmap requests</pre></td></tr></table></figure><h4 id="管理员身份"><a class="anchor" href="#管理员身份">#</a> 管理员身份</h4>
+<p>手机没有 root, 可利用 proot 工具来模拟某些需要 root 的环境</p>
+<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre>pkg <span class="token function">install</span> proot</pre></td></tr></table></figure><p>然后终端下面输入:</p>
+<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre>termux-chroot</pre></td></tr></table></figure><p>即可模拟 root 环境，在这个 proot 环境下面，相当于是进入了 home 目录，可以很方便地进行一些配置。在管理员身份下，输入 exit 可回到普通用户身份。</p>
+<p>参考：Termux 高级终端安装使用配置教程 url:<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3V1dTk4Ny9hcnRpY2xlL2RldGFpbHMvODY3NzM3OTE=">https://blog.csdn.net/uuu987/article/details/86773791</span></p>
+<h4 id="克隆metasploit"><a class="anchor" href="#克隆metasploit">#</a> 克隆 metasploit</h4>
+<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token builtin class-name">cd</span> /usr</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">git</span> clone https://github.com/gushmazuko/metasploit_in_termux</pre></td></tr></table></figure><h4 id="安装metasploit"><a class="anchor" href="#安装metasploit">#</a> 安装 metasploit</h4>
+<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">chmod</span> +x *.sh <span class="token operator">&amp;&amp;</span> ./metasploit.sh</pre></td></tr></table></figure><p>参考 url：<span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL2F2OTMwMDkyOTg1Lw==">https://www.bilibili.com/video/av930092985/</span></p>
+<h4 id="解决中文乱码问题"><a class="anchor" href="#解决中文乱码问题">#</a> 解决中文乱码问题</h4>
+<p>在 home 目录下，新建.vimrc 文件</p>
+<pre><code>vim .vimrc
+</code></pre>
+<p>添加内容如下:</p>
+<pre><code>set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
+set enc=utf8
+set fencs=utf8,gbk,gb2312,gb18030
+</code></pre>
+<p>然后 source 下变量:</p>
+<pre><code>source .vimrc
+</code></pre>
+]]></content>
       <categories>
-          
-          <category> 环境搭建 </category>
-          
+        <category>环境搭建</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> Termux </tag>
-            
-            <tag> 渗透 </tag>
-            
-            <tag> metasploit </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-  
-  
+      <tags>
+        <tag>Termux</tag>
+        <tag>渗透</tag>
+        <tag>metasploit</tag>
+      </tags>
+  </entry>
 </search>
