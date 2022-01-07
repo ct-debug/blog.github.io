@@ -1,8 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Termux</title>
+    <url>/2022/01/04/termux/</url>
+    <content><![CDATA[<h4 id="更换国内源"><a class="anchor" href="#更换国内源">#</a> 更换国内源</h4>
+<p>更换 Termux 清华大学源，加快软件包下载速度。</p>
+<p>设置默认编辑器</p>
+<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token builtin class-name">export</span> <span class="token assign-left variable">EDITOR</span><span class="token operator">=</span>vi</pre></td></tr></table></figure><p>编辑源文件</p>
+<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">apt</span> edit-sources</pre></td></tr></table></figure><p>将原来的 https://termux.net 官方源替换为 http://mirrors.tuna.tsinghua.edu.cn/termux</p>
+<h4 id="安装基本工具"><a class="anchor" href="#安装基本工具">#</a> 安装基本工具</h4>
+<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre>pkg update</pre></td></tr><tr><td data-num="2"></td><td><pre>pkg <span class="token function">install</span> <span class="token function">vim</span> <span class="token function">curl</span> <span class="token function">wget</span> <span class="token function">git</span> <span class="token function">unzip</span> <span class="token function">unrar</span> nmap python</pre></td></tr><tr><td data-num="3"></td><td><pre>pip <span class="token function">install</span> sqlmap requests</pre></td></tr></table></figure><h4 id="管理员身份"><a class="anchor" href="#管理员身份">#</a> 管理员身份</h4>
+<p>手机没有 root, 可利用 proot 工具来模拟某些需要 root 的环境</p>
+<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre>pkg <span class="token function">install</span> proot</pre></td></tr></table></figure><p>然后终端下面输入:</p>
+<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre>termux-chroot</pre></td></tr></table></figure><p>即可模拟 root 环境，在这个 proot 环境下面，相当于是进入了 home 目录，可以很方便地进行一些配置。在管理员身份下，输入 exit 可回到普通用户身份。</p>
+<p>参考：Termux 高级终端安装使用配置教程 url:<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3V1dTk4Ny9hcnRpY2xlL2RldGFpbHMvODY3NzM3OTE=">https://blog.csdn.net/uuu987/article/details/86773791</span></p>
+<h4 id="克隆metasploit"><a class="anchor" href="#克隆metasploit">#</a> 克隆 metasploit</h4>
+<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token builtin class-name">cd</span> /usr</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">git</span> clone https://github.com/gushmazuko/metasploit_in_termux</pre></td></tr></table></figure><h4 id="安装metasploit"><a class="anchor" href="#安装metasploit">#</a> 安装 metasploit</h4>
+<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">chmod</span> +x *.sh <span class="token operator">&amp;&amp;</span> ./metasploit.sh</pre></td></tr></table></figure><p>参考 url：<span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL2F2OTMwMDkyOTg1Lw==">https://www.bilibili.com/video/av930092985/</span></p>
+<h4 id="解决中文乱码问题"><a class="anchor" href="#解决中文乱码问题">#</a> 解决中文乱码问题</h4>
+<p>在 home 目录下，新建.vimrc 文件</p>
+<pre><code>vim .vimrc
+</code></pre>
+<p>添加内容如下:</p>
+<pre><code>set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
+set enc=utf8
+set fencs=utf8,gbk,gb2312,gb18030
+</code></pre>
+<p>然后 source 下变量:</p>
+<pre><code>source .vimrc
+</code></pre>
+]]></content>
+      <categories>
+        <category>环境搭建</category>
+      </categories>
+      <tags>
+        <tag>Termux</tag>
+        <tag>渗透</tag>
+        <tag>metasploit</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Samba</title>
-    <url>/2022/01/04/%E8%AE%A1%E7%AE%97%E6%9C%BA/samba%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</url>
+    <url>/2022/01/04/samba%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<h1 id="安装samba服务器"><a class="anchor" href="#安装samba服务器">#</a> 安装 Samba 服务器</h1>
 <h2 id="环境"><a class="anchor" href="#环境">#</a> 环境</h2>
 <blockquote>
@@ -215,45 +254,6 @@ Permissive
         <tag>服务器</tag>
         <tag>Samba</tag>
         <tag>环境搭建</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Termux</title>
-    <url>/2022/01/04/%E8%AE%A1%E7%AE%97%E6%9C%BA/termux/</url>
-    <content><![CDATA[<h4 id="更换国内源"><a class="anchor" href="#更换国内源">#</a> 更换国内源</h4>
-<p>更换 Termux 清华大学源，加快软件包下载速度。</p>
-<p>设置默认编辑器</p>
-<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token builtin class-name">export</span> <span class="token assign-left variable">EDITOR</span><span class="token operator">=</span>vi</pre></td></tr></table></figure><p>编辑源文件</p>
-<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">apt</span> edit-sources</pre></td></tr></table></figure><p>将原来的 https://termux.net 官方源替换为 http://mirrors.tuna.tsinghua.edu.cn/termux</p>
-<h4 id="安装基本工具"><a class="anchor" href="#安装基本工具">#</a> 安装基本工具</h4>
-<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre>pkg update</pre></td></tr><tr><td data-num="2"></td><td><pre>pkg <span class="token function">install</span> <span class="token function">vim</span> <span class="token function">curl</span> <span class="token function">wget</span> <span class="token function">git</span> <span class="token function">unzip</span> <span class="token function">unrar</span> nmap python</pre></td></tr><tr><td data-num="3"></td><td><pre>pip <span class="token function">install</span> sqlmap requests</pre></td></tr></table></figure><h4 id="管理员身份"><a class="anchor" href="#管理员身份">#</a> 管理员身份</h4>
-<p>手机没有 root, 可利用 proot 工具来模拟某些需要 root 的环境</p>
-<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre>pkg <span class="token function">install</span> proot</pre></td></tr></table></figure><p>然后终端下面输入:</p>
-<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre>termux-chroot</pre></td></tr></table></figure><p>即可模拟 root 环境，在这个 proot 环境下面，相当于是进入了 home 目录，可以很方便地进行一些配置。在管理员身份下，输入 exit 可回到普通用户身份。</p>
-<p>参考：Termux 高级终端安装使用配置教程 url:<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3V1dTk4Ny9hcnRpY2xlL2RldGFpbHMvODY3NzM3OTE=">https://blog.csdn.net/uuu987/article/details/86773791</span></p>
-<h4 id="克隆metasploit"><a class="anchor" href="#克隆metasploit">#</a> 克隆 metasploit</h4>
-<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token builtin class-name">cd</span> /usr</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">git</span> clone https://github.com/gushmazuko/metasploit_in_termux</pre></td></tr></table></figure><h4 id="安装metasploit"><a class="anchor" href="#安装metasploit">#</a> 安装 metasploit</h4>
-<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">chmod</span> +x *.sh <span class="token operator">&amp;&amp;</span> ./metasploit.sh</pre></td></tr></table></figure><p>参考 url：<span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL2F2OTMwMDkyOTg1Lw==">https://www.bilibili.com/video/av930092985/</span></p>
-<h4 id="解决中文乱码问题"><a class="anchor" href="#解决中文乱码问题">#</a> 解决中文乱码问题</h4>
-<p>在 home 目录下，新建.vimrc 文件</p>
-<pre><code>vim .vimrc
-</code></pre>
-<p>添加内容如下:</p>
-<pre><code>set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
-set enc=utf8
-set fencs=utf8,gbk,gb2312,gb18030
-</code></pre>
-<p>然后 source 下变量:</p>
-<pre><code>source .vimrc
-</code></pre>
-]]></content>
-      <categories>
-        <category>环境搭建</category>
-      </categories>
-      <tags>
-        <tag>Termux</tag>
-        <tag>渗透</tag>
-        <tag>metasploit</tag>
       </tags>
   </entry>
 </search>

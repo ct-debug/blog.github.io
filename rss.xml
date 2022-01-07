@@ -31,9 +31,9 @@
         <category term="网络安全" />
         <category term="环境搭建" />
         <item>
-            <guid isPermalink="true">https://blog.debugsrc.top/2022/01/04/%E8%AE%A1%E7%AE%97%E6%9C%BA/samba%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</guid>
+            <guid isPermalink="true">https://blog.debugsrc.top/2022/01/04/samba%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</guid>
             <title>Samba</title>
-            <link>https://blog.debugsrc.top/2022/01/04/%E8%AE%A1%E7%AE%97%E6%9C%BA/samba%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</link>
+            <link>https://blog.debugsrc.top/2022/01/04/samba%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</link>
             <category term="服务器搭建" scheme="https://blog.debugsrc.top/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/" />
             <category term="服务器" scheme="https://blog.debugsrc.top/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" />
             <category term="Samba" scheme="https://blog.debugsrc.top/tags/Samba/" />
@@ -246,9 +246,9 @@ Permissive
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://blog.debugsrc.top/2022/01/04/%E8%AE%A1%E7%AE%97%E6%9C%BA/termux/</guid>
+            <guid isPermalink="true">https://blog.debugsrc.top/2022/01/04/termux/</guid>
             <title>Termux</title>
-            <link>https://blog.debugsrc.top/2022/01/04/%E8%AE%A1%E7%AE%97%E6%9C%BA/termux/</link>
+            <link>https://blog.debugsrc.top/2022/01/04/termux/</link>
             <category term="环境搭建" scheme="https://blog.debugsrc.top/categories/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" />
             <category term="Termux" scheme="https://blog.debugsrc.top/tags/Termux/" />
             <category term="渗透" scheme="https://blog.debugsrc.top/tags/%E6%B8%97%E9%80%8F/" />
