@@ -63,78 +63,33 @@
       </tags>
   </entry>
   <entry>
-    <title>CentOS8.2 ftp服务器搭建</title>
-    <url>/2019/01/01/CentOS%208.2%20ftp%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</url>
-    <content><![CDATA[<h1 id="centos-82-ftp服务器搭建"><a class="anchor" href="#centos-82-ftp服务器搭建">#</a> CentOS 8.2 ftp 服务器搭建</h1>
-<h2 id="安装vsftpd"><a class="anchor" href="#安装vsftpd">#</a> 安装 vsftpd</h2>
-<p><code>yum install -y vsftpd</code></p>
-<ul>
-<li>
-<p>配置文件目录 <code>/etc/vsftpd</code></p>
-</li>
-<li>
-<p>主配置文件 <code>/etc/vsftpd/vsftpd.conf</code></p>
-</li>
-<li>
-<p>不允许访问 FTP 服务器的用户 <code>/etc/vsftpd/ftpusers</code></p>
-</li>
-<li>
-<p>允许访问 FTP 服务器的用户 <code>/etc/vsftpd/user_list</code></p>
-</li>
-<li>
-<p>启动服务 <code>systemctl start vsftpd.service</code></p>
-</li>
-<li>
-<p>重启服务 <code>systemctl restart vsftpd.service</code></p>
-</li>
-<li>
-<p>开机自启 <code>systemctl enable vsftpd.service</code></p>
-</li>
-<li>
-<p>查看服务状态 <code>systemctl status vsftpd.service</code></p>
-<h2 id="配置"><a class="anchor" href="#配置">#</a> 配置</h2>
-</li>
-<li>
-<p>pasv 模式即被动模式<br />
- <code>pasv_min_port=65400</code> pasv 最小端口<br />
- <code>pasv_max_port=65420</code> pasv 最大端口</p>
-</li>
-<li>
-<p>建立一个 ftp 用户，此用户不能登陆系统，且只能访问自己主目录下的文件<br />
- <code>useradd -d /var/ftp/test -g ftp -s /sbin/nologin ftpuser</code></p>
-</li>
-</ul>
-<blockquote>
-<p>-d 指定用户主目录。-g 指定用户分组。-s /sbin/nologin 禁止用户登陆系统。ftpuser 新建用户的用户名</p>
-</blockquote>
-<ul>
-<li>
-<p>设置密码<br />
- <code>passwd ftpuser</code></p>
-</li>
-<li>
-<p>建立用户以后，需要配置用户可登陆名单，并将新建用户添加进入 ftp 可登陆名单中</p>
-</li>
-<li>
-<p>配置用户名单的方式是：打开配置文件，找到如下两行，去掉其注释符号<br />
- <code>chroot_list_enable=YES</code> <br />
- <code>chroot_list_file=/etc/vsftpd/chroot_list</code></p>
-</li>
-<li>
-<p>只有名单中的用户可以登陆系统</p>
-<h2 id="配置防火墙"><a class="anchor" href="#配置防火墙">#</a> 配置防火墙</h2>
-</li>
-<li>
-<p>简单粗暴直接关闭 <code>systemctl stop firewalld</code></p>
-</li>
-</ul>
-]]></content>
+    <title>Termux</title>
+    <url>/2019/01/01/Termux/</url>
+    <content><![CDATA[<h4 id="更换国内源"><a class="anchor" href="#更换国内源">#</a> 更换国内源</h4>
+<p>更换 Termux 清华大学源，加快软件包下载速度。</p>
+<p>设置默认编辑器</p>
+<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token builtin class-name">export</span> <span class="token assign-left variable">EDITOR</span><span class="token operator">=</span>vi</pre></td></tr></table></figure><p>编辑源文件</p>
+<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">apt</span> edit-sources</pre></td></tr></table></figure><p>将原来的 https://termux.net 官方源替换为 http://mirrors.tuna.tsinghua.edu.cn/termux</p>
+<h4 id="安装基本工具"><a class="anchor" href="#安装基本工具">#</a> 安装基本工具</h4>
+<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre>pkg update</pre></td></tr><tr><td data-num="2"></td><td><pre>pkg <span class="token function">install</span> <span class="token function">vim</span> <span class="token function">curl</span> <span class="token function">wget</span> <span class="token function">git</span> <span class="token function">unzip</span> <span class="token function">unrar</span> nmap python</pre></td></tr><tr><td data-num="3"></td><td><pre>pip <span class="token function">install</span> sqlmap requests</pre></td></tr></table></figure><h4 id="管理员身份"><a class="anchor" href="#管理员身份">#</a> 管理员身份</h4>
+<p>手机没有 root, 可利用 proot 工具来模拟某些需要 root 的环境</p>
+<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre>pkg <span class="token function">install</span> proot</pre></td></tr></table></figure><p>然后终端下面输入:</p>
+<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre>termux-chroot</pre></td></tr></table></figure><p>即可模拟 root 环境，在这个 proot 环境下面，相当于是进入了 home 目录，可以很方便地进行一些配置。在管理员身份下，输入 exit 可回到普通用户身份。</p>
+<p>参考：Termux 高级终端安装使用配置教程 url:<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3V1dTk4Ny9hcnRpY2xlL2RldGFpbHMvODY3NzM3OTE=">https://blog.csdn.net/uuu987/article/details/86773791</span></p>
+<h4 id="克隆metasploit"><a class="anchor" href="#克隆metasploit">#</a> 克隆 metasploit</h4>
+<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token builtin class-name">cd</span> /usr</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">git</span> clone https://github.com/gushmazuko/metasploit_in_termux</pre></td></tr></table></figure><h4 id="安装metasploit"><a class="anchor" href="#安装metasploit">#</a> 安装 metasploit</h4>
+<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">chmod</span> +x *.sh <span class="token operator">&amp;&amp;</span> ./metasploit.sh</pre></td></tr></table></figure><p>参考 url：<span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL2F2OTMwMDkyOTg1Lw==">https://www.bilibili.com/video/av930092985/</span></p>
+<h4 id="解决中文乱码问题"><a class="anchor" href="#解决中文乱码问题">#</a> 解决中文乱码问题</h4>
+<p>在 home 目录下，新建.vimrc 文件</p>
+<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">vim</span> .vimrc</pre></td></tr></table></figure><p>添加内容如下:</p>
+<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token builtin class-name">set</span> <span class="token assign-left variable">fileencodings</span><span class="token operator">=</span>utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token builtin class-name">set</span> <span class="token assign-left variable">enc</span><span class="token operator">=</span>utf8</pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token builtin class-name">set</span> <span class="token assign-left variable">fencs</span><span class="token operator">=</span>utf8,gbk,gb2312,gb18030</pre></td></tr></table></figure><p>然后 source 下变量:</p>
+<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token builtin class-name">source</span> .vimrc</pre></td></tr></table></figure>]]></content>
       <categories>
         <category>环境搭建</category>
       </categories>
       <tags>
         <tag>学习笔记</tag>
-        <tag>FTP</tag>
+        <tag>Termux</tag>
       </tags>
   </entry>
   <entry>
@@ -304,6 +259,131 @@ private            Y                  N                  N                 N</p>
       </tags>
   </entry>
   <entry>
+    <title>CentOS8.2 ftp服务器搭建</title>
+    <url>/2019/01/01/CentOS%208.2%20ftp%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<h1 id="centos-82-ftp服务器搭建"><a class="anchor" href="#centos-82-ftp服务器搭建">#</a> CentOS 8.2 ftp 服务器搭建</h1>
+<h2 id="安装vsftpd"><a class="anchor" href="#安装vsftpd">#</a> 安装 vsftpd</h2>
+<p><code>yum install -y vsftpd</code></p>
+<ul>
+<li>
+<p>配置文件目录 <code>/etc/vsftpd</code></p>
+</li>
+<li>
+<p>主配置文件 <code>/etc/vsftpd/vsftpd.conf</code></p>
+</li>
+<li>
+<p>不允许访问 FTP 服务器的用户 <code>/etc/vsftpd/ftpusers</code></p>
+</li>
+<li>
+<p>允许访问 FTP 服务器的用户 <code>/etc/vsftpd/user_list</code></p>
+</li>
+<li>
+<p>启动服务 <code>systemctl start vsftpd.service</code></p>
+</li>
+<li>
+<p>重启服务 <code>systemctl restart vsftpd.service</code></p>
+</li>
+<li>
+<p>开机自启 <code>systemctl enable vsftpd.service</code></p>
+</li>
+<li>
+<p>查看服务状态 <code>systemctl status vsftpd.service</code></p>
+<h2 id="配置"><a class="anchor" href="#配置">#</a> 配置</h2>
+</li>
+<li>
+<p>pasv 模式即被动模式<br />
+ <code>pasv_min_port=65400</code> pasv 最小端口<br />
+ <code>pasv_max_port=65420</code> pasv 最大端口</p>
+</li>
+<li>
+<p>建立一个 ftp 用户，此用户不能登陆系统，且只能访问自己主目录下的文件<br />
+ <code>useradd -d /var/ftp/test -g ftp -s /sbin/nologin ftpuser</code></p>
+</li>
+</ul>
+<blockquote>
+<p>-d 指定用户主目录。-g 指定用户分组。-s /sbin/nologin 禁止用户登陆系统。ftpuser 新建用户的用户名</p>
+</blockquote>
+<ul>
+<li>
+<p>设置密码<br />
+ <code>passwd ftpuser</code></p>
+</li>
+<li>
+<p>建立用户以后，需要配置用户可登陆名单，并将新建用户添加进入 ftp 可登陆名单中</p>
+</li>
+<li>
+<p>配置用户名单的方式是：打开配置文件，找到如下两行，去掉其注释符号<br />
+ <code>chroot_list_enable=YES</code> <br />
+ <code>chroot_list_file=/etc/vsftpd/chroot_list</code></p>
+</li>
+<li>
+<p>只有名单中的用户可以登陆系统</p>
+<h2 id="配置防火墙"><a class="anchor" href="#配置防火墙">#</a> 配置防火墙</h2>
+</li>
+<li>
+<p>简单粗暴直接关闭 <code>systemctl stop firewalld</code></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>环境搭建</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
+        <tag>FTP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>kali安装python2，python3对应的pip</title>
+    <url>/2019/01/01/kali%E5%AE%89%E8%A3%85python2%EF%BC%8Cpython3%E5%AF%B9%E5%BA%94%E7%9A%84pip/</url>
+    <content><![CDATA[<h2 id="kali自带python2python3但都没有pip包管理器"><a class="anchor" href="#kali自带python2python3但都没有pip包管理器">#</a> kali 自带 python2，python3，但都没有 pip 包管理器</h2>
+<pre><code class="language-sh">python -V #查看python版本
+python3 -V #查看python3版本
+</code></pre>
+<h2 id="python2安装pip"><a class="anchor" href="#python2安装pip">#</a> python2 安装 pip</h2>
+<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">wget</span> https://bootstrap.pypa.io/pip/2.7/get-pip.py   <span class="token comment">#下载 pip</span></pre></td></tr><tr><td data-num="2"></td><td><pre>python get-pip.py   <span class="token comment">#安装 pip</span></pre></td></tr><tr><td data-num="3"></td><td><pre>python -m pip -V    <span class="token comment">#查看安装 pip 的版本</span></pre></td></tr></table></figure><h2 id="python3安装pip"><a class="anchor" href="#python3安装pip">#</a> python3 安装 pip</h2>
+<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">curl</span> -s https://bootstrap.pypa.io/get-pip.py <span class="token operator">|</span> python3</pre></td></tr><tr><td data-num="2"></td><td><pre>python3 -m pip -V    <span class="token comment">#查看安装 pip 的版本</span></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>环境搭建</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
+        <tag>kali</tag>
+        <tag>python</tag>
+        <tag>pip</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>kali Linux 2020版更新源及中文设置问题解决方案</title>
+    <url>/2019/01/01/kali%20Linux%202020%E7%89%88%E6%9B%B4%E6%96%B0%E6%BA%90%E5%8F%8A%E4%B8%AD%E6%96%87%E8%AE%BE%E7%BD%AE%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<h1 id="kali-linux-2020版"><a class="anchor" href="#kali-linux-2020版">#</a> kali linux 2020 版</h1>
+<h2 id="将kali的更新源切换成国内的源"><a class="anchor" href="#将kali的更新源切换成国内的源">#</a> 将 kali 的更新源切换成国内的源</h2>
+<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">sudo</span> <span class="token function">su</span> - //root权限</pre></td></tr><tr><td data-num="2"></td><td><pre>kali      //密码</pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> leafpad //安装文本编辑器</pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token function">vim</span> /etc/apt/sources.list //打开文件</pre></td></tr></table></figure><blockquote>
+<p>将默认的源文件替换<br />
+（下面介绍替换的具体操作，熟悉 Linux 操作指令）<br />
+输入 i 进入编辑模式（编辑的就是刚打开的 sources.list 文件）<br />
+将旧的源文件删掉或者注释掉（里面除了原来的更新源都是注释，不用怕删掉不该删的）<br />
+将新的更新源复制粘贴到该文件中，注意 Linux 终端下粘贴快捷键是：Ctrl + Shift + V<br />
+ 按 ESC 退出编辑模式，按 ： 再按 wq 保存，回车就完成了</p>
+</blockquote>
+<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">apt-get</span> update <span class="token operator">&amp;</span> <span class="token function">apt-get</span> upgrade //更新</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">apt-get</span> dist-upgrade</pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token function">apt-get</span> clean</pre></td></tr><tr><td data-num="4"></td><td><pre>查看系统版本  命令：lsb_release -a</pre></td></tr><tr><td data-num="5"></td><td><pre>查看内核版本  命令：uname -r</pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>更新源：</pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token comment">#中科大</span></pre></td></tr><tr><td data-num="9"></td><td><pre>deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib</pre></td></tr><tr><td data-num="10"></td><td><pre>deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib</pre></td></tr><tr><td data-num="11"></td><td><pre> </pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token comment">#阿里云</span></pre></td></tr><tr><td data-num="13"></td><td><pre>deb http://mirrors.aliyun.com/kali kali-rolling main non-free contrib</pre></td></tr><tr><td data-num="14"></td><td><pre>deb-src http://mirrors.aliyun.com/kali kali-rolling main non-free contrib</pre></td></tr><tr><td data-num="15"></td><td><pre> </pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token comment">#清华大学</span></pre></td></tr><tr><td data-num="17"></td><td><pre>deb http://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-free</pre></td></tr><tr><td data-num="18"></td><td><pre>deb-src https://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-free</pre></td></tr><tr><td data-num="19"></td><td><pre> </pre></td></tr><tr><td data-num="20"></td><td><pre><span class="token comment">#浙大</span></pre></td></tr><tr><td data-num="21"></td><td><pre>deb http://mirrors.zju.edu.cn/kali kali-rolling main contrib non-free</pre></td></tr><tr><td data-num="22"></td><td><pre>deb-src http://mirrors.zju.edu.cn/kali kali-rolling main contrib non-free</pre></td></tr><tr><td data-num="23"></td><td><pre> </pre></td></tr><tr><td data-num="24"></td><td><pre><span class="token comment">#东软大学</span></pre></td></tr><tr><td data-num="25"></td><td><pre>deb http://mirrors.neusoft.edu.cn/kali kali-rolling/main non-free contrib</pre></td></tr><tr><td data-num="26"></td><td><pre>deb-src http://mirrors.neusoft.edu.cn/kali kali-rolling/main non-free contrib</pre></td></tr><tr><td data-num="27"></td><td><pre> </pre></td></tr><tr><td data-num="28"></td><td><pre><span class="token comment">#官方源</span></pre></td></tr><tr><td data-num="29"></td><td><pre>deb http://http.kali.org/kali kali-rolling main non-free contrib</pre></td></tr><tr><td data-num="30"></td><td><pre>deb-src http://http.kali.org/kali kali-rolling main non-free contrib</pre></td></tr><tr><td data-num="31"></td><td><pre> </pre></td></tr><tr><td data-num="32"></td><td><pre>deb http://mirrors.163.com/debian/ jessie main non-free contrib</pre></td></tr><tr><td data-num="33"></td><td><pre>deb http://mirrors.163.com/debian/ jessie-updates main non-free contrib</pre></td></tr><tr><td data-num="34"></td><td><pre>deb http://mirrors.163.com/debian/ jessie-backports main non-free contrib</pre></td></tr><tr><td data-num="35"></td><td><pre>deb-src http://mirrors.163.com/debian/ jessie main non-free contrib</pre></td></tr><tr><td data-num="36"></td><td><pre>deb-src http://mirrors.163.com/debian/ jessie-updates main non-free contrib</pre></td></tr><tr><td data-num="37"></td><td><pre>deb-src http://mirrors.163.com/debian/ jessie-backports main non-free contrib</pre></td></tr><tr><td data-num="38"></td><td><pre>deb http://mirrors.163.com/debian-security/ jessie/updates main non-free contrib</pre></td></tr><tr><td data-num="39"></td><td><pre>deb-src http://mirrors.163.com/debian-security/ jessie/updates main non-free contrib</pre></td></tr></table></figure><h2 id="中文设置问题解决方案"><a class="anchor" href="#中文设置问题解决方案">#</a> 中文设置问题解决方案</h2>
+<p>1. 在 root 用户下直接输入 “dpkg-reconfigure locales” 命令，如果是 kali 普通用户则输入 “sudo dpkg-reconfigure locales” 然后输入密码 kali</p>
+<p>2. 先找到 en_US.UTF-8，空格键取消它，然后再找到 zh_CN.UTF-8，空格键选中</p>
+<p>3. 单击确定后，下一界面，选择 zh_CN.UTF-8，确定</p>
+<p>4. 然后 reboot 重启生效</p>
+<p>5. 重启后会出现乱码，再次打开终端，输入 “apt-get install ttf-wqy-microhei ttf-wqy-zenhei xfonts-wqy” 下载中文字体</p>
+<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">#安装中文字体：(1)</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> xfonts-intl-chinese</pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment">#输入当前用户密码</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token comment">#安装中文字体：(2)</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> ttf-wqy-microhei</pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token comment">#输入当前用户密码</span></pre></td></tr></table></figure><p>6. 之后 reboot 重启，重启后就完成了 kali 的中文配置</p>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
+        <tag>kali</tag>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CentOS上安装Docker引擎</title>
     <url>/2019/01/01/CentOS%20%E4%B8%8A%E5%AE%89%E8%A3%85%20Docker%20%E5%BC%95%E6%93%8E/</url>
     <content><![CDATA[<p><strong>要在 CentOS 上开始使用 Docker Engine，请确保 满足先决条件，然后 安装 Docker。</strong></p>
@@ -381,86 +461,6 @@ private            Y                  N                  N                 N</p>
         <tag>学习笔记</tag>
         <tag>CentOS</tag>
         <tag>Docker</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>kali Linux 2020版更新源及中文设置问题解决方案</title>
-    <url>/2019/01/01/kali%20Linux%202020%E7%89%88%E6%9B%B4%E6%96%B0%E6%BA%90%E5%8F%8A%E4%B8%AD%E6%96%87%E8%AE%BE%E7%BD%AE%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
-    <content><![CDATA[<h1 id="kali-linux-2020版"><a class="anchor" href="#kali-linux-2020版">#</a> kali linux 2020 版</h1>
-<h2 id="将kali的更新源切换成国内的源"><a class="anchor" href="#将kali的更新源切换成国内的源">#</a> 将 kali 的更新源切换成国内的源</h2>
-<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">sudo</span> <span class="token function">su</span> - //root权限</pre></td></tr><tr><td data-num="2"></td><td><pre>kali      //密码</pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> leafpad //安装文本编辑器</pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token function">vim</span> /etc/apt/sources.list //打开文件</pre></td></tr></table></figure><blockquote>
-<p>将默认的源文件替换<br />
-（下面介绍替换的具体操作，熟悉 Linux 操作指令）<br />
-输入 i 进入编辑模式（编辑的就是刚打开的 sources.list 文件）<br />
-将旧的源文件删掉或者注释掉（里面除了原来的更新源都是注释，不用怕删掉不该删的）<br />
-将新的更新源复制粘贴到该文件中，注意 Linux 终端下粘贴快捷键是：Ctrl + Shift + V<br />
- 按 ESC 退出编辑模式，按 ： 再按 wq 保存，回车就完成了</p>
-</blockquote>
-<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">apt-get</span> update <span class="token operator">&amp;</span> <span class="token function">apt-get</span> upgrade //更新</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">apt-get</span> dist-upgrade</pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token function">apt-get</span> clean</pre></td></tr><tr><td data-num="4"></td><td><pre>查看系统版本  命令：lsb_release -a</pre></td></tr><tr><td data-num="5"></td><td><pre>查看内核版本  命令：uname -r</pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>更新源：</pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token comment">#中科大</span></pre></td></tr><tr><td data-num="9"></td><td><pre>deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib</pre></td></tr><tr><td data-num="10"></td><td><pre>deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib</pre></td></tr><tr><td data-num="11"></td><td><pre> </pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token comment">#阿里云</span></pre></td></tr><tr><td data-num="13"></td><td><pre>deb http://mirrors.aliyun.com/kali kali-rolling main non-free contrib</pre></td></tr><tr><td data-num="14"></td><td><pre>deb-src http://mirrors.aliyun.com/kali kali-rolling main non-free contrib</pre></td></tr><tr><td data-num="15"></td><td><pre> </pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token comment">#清华大学</span></pre></td></tr><tr><td data-num="17"></td><td><pre>deb http://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-free</pre></td></tr><tr><td data-num="18"></td><td><pre>deb-src https://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-free</pre></td></tr><tr><td data-num="19"></td><td><pre> </pre></td></tr><tr><td data-num="20"></td><td><pre><span class="token comment">#浙大</span></pre></td></tr><tr><td data-num="21"></td><td><pre>deb http://mirrors.zju.edu.cn/kali kali-rolling main contrib non-free</pre></td></tr><tr><td data-num="22"></td><td><pre>deb-src http://mirrors.zju.edu.cn/kali kali-rolling main contrib non-free</pre></td></tr><tr><td data-num="23"></td><td><pre> </pre></td></tr><tr><td data-num="24"></td><td><pre><span class="token comment">#东软大学</span></pre></td></tr><tr><td data-num="25"></td><td><pre>deb http://mirrors.neusoft.edu.cn/kali kali-rolling/main non-free contrib</pre></td></tr><tr><td data-num="26"></td><td><pre>deb-src http://mirrors.neusoft.edu.cn/kali kali-rolling/main non-free contrib</pre></td></tr><tr><td data-num="27"></td><td><pre> </pre></td></tr><tr><td data-num="28"></td><td><pre><span class="token comment">#官方源</span></pre></td></tr><tr><td data-num="29"></td><td><pre>deb http://http.kali.org/kali kali-rolling main non-free contrib</pre></td></tr><tr><td data-num="30"></td><td><pre>deb-src http://http.kali.org/kali kali-rolling main non-free contrib</pre></td></tr><tr><td data-num="31"></td><td><pre> </pre></td></tr><tr><td data-num="32"></td><td><pre>deb http://mirrors.163.com/debian/ jessie main non-free contrib</pre></td></tr><tr><td data-num="33"></td><td><pre>deb http://mirrors.163.com/debian/ jessie-updates main non-free contrib</pre></td></tr><tr><td data-num="34"></td><td><pre>deb http://mirrors.163.com/debian/ jessie-backports main non-free contrib</pre></td></tr><tr><td data-num="35"></td><td><pre>deb-src http://mirrors.163.com/debian/ jessie main non-free contrib</pre></td></tr><tr><td data-num="36"></td><td><pre>deb-src http://mirrors.163.com/debian/ jessie-updates main non-free contrib</pre></td></tr><tr><td data-num="37"></td><td><pre>deb-src http://mirrors.163.com/debian/ jessie-backports main non-free contrib</pre></td></tr><tr><td data-num="38"></td><td><pre>deb http://mirrors.163.com/debian-security/ jessie/updates main non-free contrib</pre></td></tr><tr><td data-num="39"></td><td><pre>deb-src http://mirrors.163.com/debian-security/ jessie/updates main non-free contrib</pre></td></tr></table></figure><h2 id="中文设置问题解决方案"><a class="anchor" href="#中文设置问题解决方案">#</a> 中文设置问题解决方案</h2>
-<p>1. 在 root 用户下直接输入 “dpkg-reconfigure locales” 命令，如果是 kali 普通用户则输入 “sudo dpkg-reconfigure locales” 然后输入密码 kali</p>
-<p>2. 先找到 en_US.UTF-8，空格键取消它，然后再找到 zh_CN.UTF-8，空格键选中</p>
-<p>3. 单击确定后，下一界面，选择 zh_CN.UTF-8，确定</p>
-<p>4. 然后 reboot 重启生效</p>
-<p>5. 重启后会出现乱码，再次打开终端，输入 “apt-get install ttf-wqy-microhei ttf-wqy-zenhei xfonts-wqy” 下载中文字体</p>
-<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">#安装中文字体：(1)</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> xfonts-intl-chinese</pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment">#输入当前用户密码</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token comment">#安装中文字体：(2)</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> ttf-wqy-microhei</pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token comment">#输入当前用户密码</span></pre></td></tr></table></figure><p>6. 之后 reboot 重启，重启后就完成了 kali 的中文配置</p>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>学习笔记</tag>
-        <tag>kali</tag>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Termux</title>
-    <url>/2019/01/01/Termux/</url>
-    <content><![CDATA[<h4 id="更换国内源"><a class="anchor" href="#更换国内源">#</a> 更换国内源</h4>
-<p>更换 Termux 清华大学源，加快软件包下载速度。</p>
-<p>设置默认编辑器</p>
-<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token builtin class-name">export</span> <span class="token assign-left variable">EDITOR</span><span class="token operator">=</span>vi</pre></td></tr></table></figure><p>编辑源文件</p>
-<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">apt</span> edit-sources</pre></td></tr></table></figure><p>将原来的 https://termux.net 官方源替换为 http://mirrors.tuna.tsinghua.edu.cn/termux</p>
-<h4 id="安装基本工具"><a class="anchor" href="#安装基本工具">#</a> 安装基本工具</h4>
-<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre>pkg update</pre></td></tr><tr><td data-num="2"></td><td><pre>pkg <span class="token function">install</span> <span class="token function">vim</span> <span class="token function">curl</span> <span class="token function">wget</span> <span class="token function">git</span> <span class="token function">unzip</span> <span class="token function">unrar</span> nmap python</pre></td></tr><tr><td data-num="3"></td><td><pre>pip <span class="token function">install</span> sqlmap requests</pre></td></tr></table></figure><h4 id="管理员身份"><a class="anchor" href="#管理员身份">#</a> 管理员身份</h4>
-<p>手机没有 root, 可利用 proot 工具来模拟某些需要 root 的环境</p>
-<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre>pkg <span class="token function">install</span> proot</pre></td></tr></table></figure><p>然后终端下面输入:</p>
-<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre>termux-chroot</pre></td></tr></table></figure><p>即可模拟 root 环境，在这个 proot 环境下面，相当于是进入了 home 目录，可以很方便地进行一些配置。在管理员身份下，输入 exit 可回到普通用户身份。</p>
-<p>参考：Termux 高级终端安装使用配置教程 url:<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3V1dTk4Ny9hcnRpY2xlL2RldGFpbHMvODY3NzM3OTE=">https://blog.csdn.net/uuu987/article/details/86773791</span></p>
-<h4 id="克隆metasploit"><a class="anchor" href="#克隆metasploit">#</a> 克隆 metasploit</h4>
-<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token builtin class-name">cd</span> /usr</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">git</span> clone https://github.com/gushmazuko/metasploit_in_termux</pre></td></tr></table></figure><h4 id="安装metasploit"><a class="anchor" href="#安装metasploit">#</a> 安装 metasploit</h4>
-<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">chmod</span> +x *.sh <span class="token operator">&amp;&amp;</span> ./metasploit.sh</pre></td></tr></table></figure><p>参考 url：<span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL2F2OTMwMDkyOTg1Lw==">https://www.bilibili.com/video/av930092985/</span></p>
-<h4 id="解决中文乱码问题"><a class="anchor" href="#解决中文乱码问题">#</a> 解决中文乱码问题</h4>
-<p>在 home 目录下，新建.vimrc 文件</p>
-<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">vim</span> .vimrc</pre></td></tr></table></figure><p>添加内容如下:</p>
-<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token builtin class-name">set</span> <span class="token assign-left variable">fileencodings</span><span class="token operator">=</span>utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token builtin class-name">set</span> <span class="token assign-left variable">enc</span><span class="token operator">=</span>utf8</pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token builtin class-name">set</span> <span class="token assign-left variable">fencs</span><span class="token operator">=</span>utf8,gbk,gb2312,gb18030</pre></td></tr></table></figure><p>然后 source 下变量:</p>
-<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token builtin class-name">source</span> .vimrc</pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>环境搭建</category>
-      </categories>
-      <tags>
-        <tag>学习笔记</tag>
-        <tag>Termux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>kali安装python2，python3对应的pip</title>
-    <url>/2019/01/01/kali%E5%AE%89%E8%A3%85python2%EF%BC%8Cpython3%E5%AF%B9%E5%BA%94%E7%9A%84pip/</url>
-    <content><![CDATA[<h2 id="kali自带python2python3但都没有pip包管理器"><a class="anchor" href="#kali自带python2python3但都没有pip包管理器">#</a> kali 自带 python2，python3，但都没有 pip 包管理器</h2>
-<pre><code class="language-sh">python -V #查看python版本
-python3 -V #查看python3版本
-</code></pre>
-<h2 id="python2安装pip"><a class="anchor" href="#python2安装pip">#</a> python2 安装 pip</h2>
-<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">wget</span> https://bootstrap.pypa.io/pip/2.7/get-pip.py   <span class="token comment">#下载 pip</span></pre></td></tr><tr><td data-num="2"></td><td><pre>python get-pip.py   <span class="token comment">#安装 pip</span></pre></td></tr><tr><td data-num="3"></td><td><pre>python -m pip -V    <span class="token comment">#查看安装 pip 的版本</span></pre></td></tr></table></figure><h2 id="python3安装pip"><a class="anchor" href="#python3安装pip">#</a> python3 安装 pip</h2>
-<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">curl</span> -s https://bootstrap.pypa.io/get-pip.py <span class="token operator">|</span> python3</pre></td></tr><tr><td data-num="2"></td><td><pre>python3 -m pip -V    <span class="token comment">#查看安装 pip 的版本</span></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>环境搭建</category>
-      </categories>
-      <tags>
-        <tag>学习笔记</tag>
-        <tag>kali</tag>
-        <tag>python</tag>
-        <tag>pip</tag>
       </tags>
   </entry>
   <entry>
@@ -590,6 +590,136 @@ python3 -V #查看python3版本
 <figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">package</span> <span class="token namespace">project1</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Dumo</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token class-name">Student</span> s <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">getname</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"----"</span><span class="token operator">+</span>s<span class="token punctuation">.</span><span class="token function">getage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"---------------------"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre>s<span class="token punctuation">.</span><span class="token function">setname</span><span class="token punctuation">(</span><span class="token string">"张三"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>s<span class="token punctuation">.</span><span class="token function">setage</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">getname</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"----"</span><span class="token operator">+</span>s<span class="token punctuation">.</span><span class="token function">getage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Java</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>重写和重载,abstract(抽象类)和interface(接口),final,static关键字,多态</title>
+    <url>/2019/01/01/%E9%87%8D%E5%86%99%E5%92%8C%E9%87%8D%E8%BD%BD,abstract(%E6%8A%BD%E8%B1%A1%E7%B1%BB)%E5%92%8Cinterface(%E6%8E%A5%E5%8F%A3),final,static%E5%85%B3%E9%94%AE%E5%AD%97,%E5%A4%9A%E6%80%81/</url>
+    <content><![CDATA[<h1 id="重写和重载"><a class="anchor" href="#重写和重载">#</a> 重写和重载</h1>
+<h3 id="方法重载overload"><a class="anchor" href="#方法重载overload">#</a> 方法重载（overload）：</h3>
+<blockquote>
+<p>必须是同一个类；<br />
+方法名（也可以叫函数）一样；<br />
+参数类型不一样或参数数量或顺序不一样；<br />
+不能通过返回值来判断重载。</p>
+</blockquote>
+<h3 id="方法的重写override子类重写了父类的同名方法两同两小一大原则"><a class="anchor" href="#方法的重写override子类重写了父类的同名方法两同两小一大原则">#</a> 方法的重写（override）子类重写了父类的同名方法，两同两小一大原则：</h3>
+<blockquote>
+<p>方法名相同，参数类型相同；<br />
+子类返回类型是父类返回类型的子类；<br />
+子类抛出异常小于等于父类方法抛出异常；<br />
+子类访问权限大于等于父类方法访问权限。<br />
+<img data-src="https://www.educoder.net/api/attachments/206833" alt="" /></p>
+</blockquote>
+<blockquote>
+<p><strong>在重写中，运用的是动态单分配，根据 <code>new</code>  的类型确定对象，从而确定调用的方法；</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>在重载中，运用的是静态多分配，根据静态类型确定对象，不能根据 <code>new</code>  的类型确定调用方法；</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>多态中，  <code>Father f = new Son()</code> 。</strong><br />
+成员变量：编译运行参考左边；<br />
+成员函数：编译看左边，运行看右边；<br />
+静态函数：编译运行看左边。</p>
+</blockquote>
+<p><strong> <code>abstract</code>  (抽象类) 和 <code>interface</code>  (接口)</strong></p>
+<h1 id="抽象类"><a class="anchor" href="#抽象类">#</a> 抽象类</h1>
+<blockquote>
+<p><strong>用  <code>abstract</code>  修饰的类表示抽象类，抽象类位于继承树的抽象层，抽象类不能被实例化。</strong><br />
+<strong>用  <code>abstract</code>  修饰的方法表示抽象方法，抽象方法没有方法体。抽象方法用来描述系统具有什么功能，但不提供具体的实现，把具体实现留给继承该类的子类。</strong></p>
+</blockquote>
+<h3 id="抽象类特点"><a class="anchor" href="#抽象类特点">#</a> 抽象类特点：</h3>
+<blockquote>
+<p>含有抽象方法的类必须声明为抽象类（不管其中是否有其他方法）；<br />
+抽象类可以没有抽象方法，可以有普通方法；<br />
+抽象类必须被继承，抽象方法必须被重写（若子类还是抽象类，不需要重写）；<br />
+抽象类不能被实例化（不能直接构造一个该类的对象）。</p>
+</blockquote>
+<h3 id="抽象方法特点"><a class="anchor" href="#抽象方法特点">#</a> 抽象方法特点：</h3>
+<blockquote>
+<p>在类中没有方法体（抽象方法只需声明，而不需实现某些功能）；<br />
+抽象类中的抽象方法必须被实现；<br />
+如果一个子类没有实现父类中的抽象方法，则子类也变成了一个抽象类。<br />
+接口  <code>interface</code>  中的方法默认为  <code>public abstract</code> （  <code>public</code>   <code>abstract</code>  可以省略），变量默认为  <code>public static final</code> ；类中的方法全部都是抽象方法。只有声明没有实现，在不同类中有不同的方法实现。</p>
+</blockquote>
+<h3 id="不同点"><a class="anchor" href="#不同点">#</a> 不同点：</h3>
+<blockquote>
+<p>接口中只能包含抽象方法和默认方法，不能为普通方法提供方法实现；抽象类中可以包含普通方法；<br />
+接口里不能定义静态方法（ jdk1.8 下可以定义 static 方法），抽象类可以定义静态方法；<br />
+接口中只能定义静态常量，不能定义普通成员变量；抽象类即可以定义变量又可以定义静态常量；<br />
+接口中不包含构造器，抽象类里可以包含构造器，抽象类中的构造器并不是用于创建对象，而是让其他子类调用这些构造器来完成抽象类的初始化操作；<br />
+接口里不能包含初始化块，但抽象类可以包含；<br />
+一个类最多只能有一个父类，包括抽象类；但一个类可以直接实现多个接口，通过实现多个接口可以弥补 Java 单继承的不足。</p>
+</blockquote>
+<h3 id="共同点"><a class="anchor" href="#共同点">#</a> 共同点：</h3>
+<blockquote>
+<p>接口和抽象类都不能被实例化，都位于继承树的顶端，用于被其他类实现的继承；<br />
+接口和抽象类都可以包含抽象方法，实现接口和继承抽象类的普通子类都必须实现这些方法。<br />
+<img data-src="https://www.educoder.net/api/attachments/206834" alt="" /></p>
+</blockquote>
+<p>#final 关键字</p>
+<blockquote>
+<p>final 修饰的类，就是最终类，不能被继承。<br />
+final 修饰的方法，就是最终方法，最终方法不能被重写。<br />
+final 修饰一个引用变量时，是指引用变量不能变，引用变量所指向的对象中的内容还是可以改变的。修饰基本数据类型变量时，内容不能变。<br />
+final 成员变量必须在初始化代码块或在构造器中初始化。</p>
+</blockquote>
+<h3 id="作用"><a class="anchor" href="#作用">#</a> 作用：</h3>
+<blockquote>
+<p>final 类：如果一个类不需要有子类，类的实现细节不允许改变，并且确信这个类不会再被扩展，那么就设计成  <code>final</code>  类。<br />
+final 方法：①把方法锁定，防止任何继承类修改它的意义和实现。②高效，编译器在遇到调用  <code>final</code>  方法时候会转入内嵌机制，大大提升执行效率。</p>
+</blockquote>
+<p>#static 关键字</p>
+<blockquote>
+<p>static 修饰的变量称为静态变量，静态变量属于整个类，而局部变量属于方法，只在该方法内有效。  <code>static</code>  不能修饰局部变量。  <code>static</code>  方法内部不能调用非静态方法。<br />
+静态变量只能在类主体中定义，不能在方法中定义；<br />
+static 变量只会创建一份，不管创建几个对象，都共用一个变量。<br />
+类方法指被  <code>static</code>  修饰的方法，无 this 指针。其他的就是实例方法。类方法可以调用其他类的  <code>static</code>  方法。</p>
+</blockquote>
+<h2 id="类方法和对象方法的区别"><a class="anchor" href="#类方法和对象方法的区别">#</a> 类方法和对象方法的区别：</h2>
+<h3 id="类方法是属于整个类的而实例方法是属于类的某个对象的"><a class="anchor" href="#类方法是属于整个类的而实例方法是属于类的某个对象的">#</a> 类方法是属于整个类的，而实例方法是属于类的某个对象的。</h3>
+<blockquote>
+<p><strong>由于类方法是属于整个类的，并不属于类的哪个对象，所以类方法的方法体中不能有与类的对象有关的内容。即类方法体有如下限制：</strong></p>
+</blockquote>
+<blockquote>
+<p>类方法中不能引用对象变量；<br />
+类方法中不能调用类的对象方法；<br />
+在类方法中不能使用  <code>super</code> 、  <code>this</code>  关键字。（  <code>this</code>  表示当前类的对象，由  <code>static</code>  修饰的方法是类直接调用，不需要创建对象，所以不能用  <code>this</code> ）；<br />
+类方法不能被覆盖。</p>
+</blockquote>
+<h3 id="与类方法相比对象方法几乎没有什么限制"><a class="anchor" href="#与类方法相比对象方法几乎没有什么限制">#</a> 与类方法相比，对象方法几乎没有什么限制：</h3>
+<blockquote>
+<p>对象方法中可以引用对象变量，也可以引用类变量；<br />
+对象方法中可以调用类方法；<br />
+对象方法中可以使用  <code>super</code> 、  <code>this</code>  关键字。</p>
+</blockquote>
+<h3 id="static关键字的作用"><a class="anchor" href="#static关键字的作用">#</a> static 关键字的作用:</h3>
+<blockquote>
+<p>为某特定数据类型或对象分配单一的存储空间，而与创建对象的个数无关；实现某个方法或属性与类而不是对象关联在一起；<br />
+静态变量属于类，在内存中只有一个复制，只要静态变量所在的类被加载，这个静态变量就会被分配空间。</p>
+</blockquote>
+<h1 id="多态"><a class="anchor" href="#多态">#</a> 多态</h1>
+<blockquote>
+<p><strong>定义：不同类的对象对同一消息做出响应。同一消息可以根据发送对象的不同而采用多种不同的行为方式；</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>多态存在的三个必要条件：继承、重写、父类引用指向子类对象；</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>Java 中多态的实现方式：接口实现，继承父类进行方法重写，同一个类中进行方法重载；</strong></p>
+</blockquote>
+<blockquote>
+<p>父类引用指向子类对象，该引用不能再访问子类新增的成员。  <code>Animal cat = new Cat()</code>  与直接  <code>new</code>  一个父类实例 (  <code>Animal a = new Animal()</code> ) 的区别？<br />
+答：当父类是接口和抽象类时，不能实例化，只能运用多态，向上转型。普通类中，可以在子类中重写父类中的方法，这样就可以访问子类中的重写方法。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>编程</category>
       </categories>
       <tags>
         <tag>学习笔记</tag>
@@ -755,136 +885,6 @@ python3 -V #查看python3版本
         <tag>学习笔记</tag>
         <tag>Linux</tag>
         <tag>samba</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>重写和重载,abstract(抽象类)和interface(接口),final,static关键字,多态</title>
-    <url>/2019/01/01/%E9%87%8D%E5%86%99%E5%92%8C%E9%87%8D%E8%BD%BD,abstract(%E6%8A%BD%E8%B1%A1%E7%B1%BB)%E5%92%8Cinterface(%E6%8E%A5%E5%8F%A3),final,static%E5%85%B3%E9%94%AE%E5%AD%97,%E5%A4%9A%E6%80%81/</url>
-    <content><![CDATA[<h1 id="重写和重载"><a class="anchor" href="#重写和重载">#</a> 重写和重载</h1>
-<h3 id="方法重载overload"><a class="anchor" href="#方法重载overload">#</a> 方法重载（overload）：</h3>
-<blockquote>
-<p>必须是同一个类；<br />
-方法名（也可以叫函数）一样；<br />
-参数类型不一样或参数数量或顺序不一样；<br />
-不能通过返回值来判断重载。</p>
-</blockquote>
-<h3 id="方法的重写override子类重写了父类的同名方法两同两小一大原则"><a class="anchor" href="#方法的重写override子类重写了父类的同名方法两同两小一大原则">#</a> 方法的重写（override）子类重写了父类的同名方法，两同两小一大原则：</h3>
-<blockquote>
-<p>方法名相同，参数类型相同；<br />
-子类返回类型是父类返回类型的子类；<br />
-子类抛出异常小于等于父类方法抛出异常；<br />
-子类访问权限大于等于父类方法访问权限。<br />
-<img data-src="https://www.educoder.net/api/attachments/206833" alt="" /></p>
-</blockquote>
-<blockquote>
-<p><strong>在重写中，运用的是动态单分配，根据 <code>new</code>  的类型确定对象，从而确定调用的方法；</strong></p>
-</blockquote>
-<blockquote>
-<p><strong>在重载中，运用的是静态多分配，根据静态类型确定对象，不能根据 <code>new</code>  的类型确定调用方法；</strong></p>
-</blockquote>
-<blockquote>
-<p><strong>多态中，  <code>Father f = new Son()</code> 。</strong><br />
-成员变量：编译运行参考左边；<br />
-成员函数：编译看左边，运行看右边；<br />
-静态函数：编译运行看左边。</p>
-</blockquote>
-<p><strong> <code>abstract</code>  (抽象类) 和 <code>interface</code>  (接口)</strong></p>
-<h1 id="抽象类"><a class="anchor" href="#抽象类">#</a> 抽象类</h1>
-<blockquote>
-<p><strong>用  <code>abstract</code>  修饰的类表示抽象类，抽象类位于继承树的抽象层，抽象类不能被实例化。</strong><br />
-<strong>用  <code>abstract</code>  修饰的方法表示抽象方法，抽象方法没有方法体。抽象方法用来描述系统具有什么功能，但不提供具体的实现，把具体实现留给继承该类的子类。</strong></p>
-</blockquote>
-<h3 id="抽象类特点"><a class="anchor" href="#抽象类特点">#</a> 抽象类特点：</h3>
-<blockquote>
-<p>含有抽象方法的类必须声明为抽象类（不管其中是否有其他方法）；<br />
-抽象类可以没有抽象方法，可以有普通方法；<br />
-抽象类必须被继承，抽象方法必须被重写（若子类还是抽象类，不需要重写）；<br />
-抽象类不能被实例化（不能直接构造一个该类的对象）。</p>
-</blockquote>
-<h3 id="抽象方法特点"><a class="anchor" href="#抽象方法特点">#</a> 抽象方法特点：</h3>
-<blockquote>
-<p>在类中没有方法体（抽象方法只需声明，而不需实现某些功能）；<br />
-抽象类中的抽象方法必须被实现；<br />
-如果一个子类没有实现父类中的抽象方法，则子类也变成了一个抽象类。<br />
-接口  <code>interface</code>  中的方法默认为  <code>public abstract</code> （  <code>public</code>   <code>abstract</code>  可以省略），变量默认为  <code>public static final</code> ；类中的方法全部都是抽象方法。只有声明没有实现，在不同类中有不同的方法实现。</p>
-</blockquote>
-<h3 id="不同点"><a class="anchor" href="#不同点">#</a> 不同点：</h3>
-<blockquote>
-<p>接口中只能包含抽象方法和默认方法，不能为普通方法提供方法实现；抽象类中可以包含普通方法；<br />
-接口里不能定义静态方法（ jdk1.8 下可以定义 static 方法），抽象类可以定义静态方法；<br />
-接口中只能定义静态常量，不能定义普通成员变量；抽象类即可以定义变量又可以定义静态常量；<br />
-接口中不包含构造器，抽象类里可以包含构造器，抽象类中的构造器并不是用于创建对象，而是让其他子类调用这些构造器来完成抽象类的初始化操作；<br />
-接口里不能包含初始化块，但抽象类可以包含；<br />
-一个类最多只能有一个父类，包括抽象类；但一个类可以直接实现多个接口，通过实现多个接口可以弥补 Java 单继承的不足。</p>
-</blockquote>
-<h3 id="共同点"><a class="anchor" href="#共同点">#</a> 共同点：</h3>
-<blockquote>
-<p>接口和抽象类都不能被实例化，都位于继承树的顶端，用于被其他类实现的继承；<br />
-接口和抽象类都可以包含抽象方法，实现接口和继承抽象类的普通子类都必须实现这些方法。<br />
-<img data-src="https://www.educoder.net/api/attachments/206834" alt="" /></p>
-</blockquote>
-<p>#final 关键字</p>
-<blockquote>
-<p>final 修饰的类，就是最终类，不能被继承。<br />
-final 修饰的方法，就是最终方法，最终方法不能被重写。<br />
-final 修饰一个引用变量时，是指引用变量不能变，引用变量所指向的对象中的内容还是可以改变的。修饰基本数据类型变量时，内容不能变。<br />
-final 成员变量必须在初始化代码块或在构造器中初始化。</p>
-</blockquote>
-<h3 id="作用"><a class="anchor" href="#作用">#</a> 作用：</h3>
-<blockquote>
-<p>final 类：如果一个类不需要有子类，类的实现细节不允许改变，并且确信这个类不会再被扩展，那么就设计成  <code>final</code>  类。<br />
-final 方法：①把方法锁定，防止任何继承类修改它的意义和实现。②高效，编译器在遇到调用  <code>final</code>  方法时候会转入内嵌机制，大大提升执行效率。</p>
-</blockquote>
-<p>#static 关键字</p>
-<blockquote>
-<p>static 修饰的变量称为静态变量，静态变量属于整个类，而局部变量属于方法，只在该方法内有效。  <code>static</code>  不能修饰局部变量。  <code>static</code>  方法内部不能调用非静态方法。<br />
-静态变量只能在类主体中定义，不能在方法中定义；<br />
-static 变量只会创建一份，不管创建几个对象，都共用一个变量。<br />
-类方法指被  <code>static</code>  修饰的方法，无 this 指针。其他的就是实例方法。类方法可以调用其他类的  <code>static</code>  方法。</p>
-</blockquote>
-<h2 id="类方法和对象方法的区别"><a class="anchor" href="#类方法和对象方法的区别">#</a> 类方法和对象方法的区别：</h2>
-<h3 id="类方法是属于整个类的而实例方法是属于类的某个对象的"><a class="anchor" href="#类方法是属于整个类的而实例方法是属于类的某个对象的">#</a> 类方法是属于整个类的，而实例方法是属于类的某个对象的。</h3>
-<blockquote>
-<p><strong>由于类方法是属于整个类的，并不属于类的哪个对象，所以类方法的方法体中不能有与类的对象有关的内容。即类方法体有如下限制：</strong></p>
-</blockquote>
-<blockquote>
-<p>类方法中不能引用对象变量；<br />
-类方法中不能调用类的对象方法；<br />
-在类方法中不能使用  <code>super</code> 、  <code>this</code>  关键字。（  <code>this</code>  表示当前类的对象，由  <code>static</code>  修饰的方法是类直接调用，不需要创建对象，所以不能用  <code>this</code> ）；<br />
-类方法不能被覆盖。</p>
-</blockquote>
-<h3 id="与类方法相比对象方法几乎没有什么限制"><a class="anchor" href="#与类方法相比对象方法几乎没有什么限制">#</a> 与类方法相比，对象方法几乎没有什么限制：</h3>
-<blockquote>
-<p>对象方法中可以引用对象变量，也可以引用类变量；<br />
-对象方法中可以调用类方法；<br />
-对象方法中可以使用  <code>super</code> 、  <code>this</code>  关键字。</p>
-</blockquote>
-<h3 id="static关键字的作用"><a class="anchor" href="#static关键字的作用">#</a> static 关键字的作用:</h3>
-<blockquote>
-<p>为某特定数据类型或对象分配单一的存储空间，而与创建对象的个数无关；实现某个方法或属性与类而不是对象关联在一起；<br />
-静态变量属于类，在内存中只有一个复制，只要静态变量所在的类被加载，这个静态变量就会被分配空间。</p>
-</blockquote>
-<h1 id="多态"><a class="anchor" href="#多态">#</a> 多态</h1>
-<blockquote>
-<p><strong>定义：不同类的对象对同一消息做出响应。同一消息可以根据发送对象的不同而采用多种不同的行为方式；</strong></p>
-</blockquote>
-<blockquote>
-<p><strong>多态存在的三个必要条件：继承、重写、父类引用指向子类对象；</strong></p>
-</blockquote>
-<blockquote>
-<p><strong>Java 中多态的实现方式：接口实现，继承父类进行方法重写，同一个类中进行方法重载；</strong></p>
-</blockquote>
-<blockquote>
-<p>父类引用指向子类对象，该引用不能再访问子类新增的成员。  <code>Animal cat = new Cat()</code>  与直接  <code>new</code>  一个父类实例 (  <code>Animal a = new Animal()</code> ) 的区别？<br />
-答：当父类是接口和抽象类时，不能实例化，只能运用多态，向上转型。普通类中，可以在子类中重写父类中的方法，这样就可以访问子类中的重写方法。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>学习笔记</tag>
-        <tag>Java</tag>
       </tags>
   </entry>
 </search>
